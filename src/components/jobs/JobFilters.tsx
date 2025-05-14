@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -158,7 +157,7 @@ const JobFilters: React.FC<JobFiltersProps> = ({ onFilterChange }) => {
                     <span>${filters.salaryRange[1].toLocaleString()}</span>
                   </div>
                   <Slider
-                    defaultValue={[0, 200000]}
+                    defaultValue={[filters.salaryRange[0], filters.salaryRange[1]]}
                     min={0}
                     max={200000}
                     step={5000}
@@ -181,7 +180,7 @@ const JobFilters: React.FC<JobFiltersProps> = ({ onFilterChange }) => {
                 </div>
                 <div className="w-[300px]">
                   <Slider
-                    defaultValue={[0, 200000]}
+                    defaultValue={[filters.salaryRange[0], filters.salaryRange[1]]}
                     min={0}
                     max={200000}
                     step={5000}

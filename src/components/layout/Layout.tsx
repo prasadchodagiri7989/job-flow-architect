@@ -18,15 +18,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Navbar />
       {isAuthenticated ? (
         <SidebarWrapper>
-          <div className="flex-grow p-4">
+          <div className="flex-grow flex flex-col min-h-[calc(100vh-64px)]">
             {isMobile && (
               <div className="mb-4">
                 <SidebarTrigger className="block md:hidden" />
               </div>
             )}
-            {children}
+            <div className="flex-grow p-4">{children}</div>
+            <Footer />
           </div>
-          <Footer />
         </SidebarWrapper>
       ) : (
         <>
