@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Briefcase, User } from "lucide-react";
+import { User } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const { currentUser, logout, isAuthenticated, isAdmin } = useAuth();
@@ -21,11 +21,14 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm py-4">
+    <nav className="bg-white border-b border-gray-200 shadow-sm py-3">
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <Briefcase className="h-6 w-6 text-job-primary" />
-          <span className="text-xl font-bold text-gray-900">NM-HR</span>
+          <img 
+            src="/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" 
+            alt="NM-HR Logo" 
+            className="h-9" 
+          />
         </Link>
 
         <div className="flex gap-4 items-center">

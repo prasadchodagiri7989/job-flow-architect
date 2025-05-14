@@ -80,7 +80,7 @@
 
 /* Custom style for the sidebar */
 [data-sidebar="sidebar"] {
-  @apply bg-white border-r;
+  @apply bg-white border-r shadow-sm;
 }
 
 /* Ensure the main content accommodates the sidebar */
@@ -88,3 +88,31 @@
   @apply transition-all duration-300;
 }
 
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Job card enhancements */
+.job-card {
+  @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+}
+
+/* Hero section gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(247,249,255,1) 0%, rgba(229,232,255,1) 100%);
+}

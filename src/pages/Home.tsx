@@ -5,7 +5,8 @@ import Layout from "../components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useJobs } from "../contexts/JobContext";
 import JobCard from "../components/jobs/JobCard";
-import { Briefcase, Search, Users, FileText } from "lucide-react";
+import { Briefcase, Search, Users, FileText, User, Globe, Award } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Home: React.FC = () => {
   const { jobs } = useJobs();
@@ -16,9 +17,16 @@ const Home: React.FC = () => {
   return (
     <Layout>
       {/* Hero section */}
-      <div className="bg-job-background">
+      <div className="bg-gradient-to-br from-job-background via-white to-job-light/30">
         <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl relative">
+            <div 
+              className="hidden md:block absolute -right-20 -top-14 w-40 h-40 opacity-10"
+              style={{
+                backgroundImage: 'radial-gradient(circle, rgba(79, 70, 229, 0.3) 1px, transparent 1px)',
+                backgroundSize: '15px 15px',
+              }}
+            ></div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Find Your Dream Job Today
             </h1>
@@ -43,7 +51,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Featured jobs section */}
-      <div className="py-16">
+      <div className="py-16 relative">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold">Latest Job Openings</h2>
@@ -69,15 +77,16 @@ const Home: React.FC = () => {
       </div>
 
       {/* Features section */}
-      <div className="bg-job-light/50 py-16">
+      <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Why Choose NM-HR
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="flex justify-center mb-4">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden">
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
+              <div className="flex justify-center mb-4 relative">
                 <div className="bg-job-light p-3 rounded-full">
                   <Search className="h-6 w-6 text-job-primary" />
                 </div>
@@ -89,7 +98,8 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden">
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
               <div className="flex justify-center mb-4">
                 <div className="bg-job-light p-3 rounded-full">
                   <FileText className="h-6 w-6 text-job-primary" />
@@ -102,7 +112,8 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden">
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
               <div className="flex justify-center mb-4">
                 <div className="bg-job-light p-3 rounded-full">
                   <Users className="h-6 w-6 text-job-primary" />
@@ -119,9 +130,13 @@ const Home: React.FC = () => {
       </div>
 
       {/* CTA section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="bg-job-primary text-white rounded-xl p-8 md:p-12 text-center">
+      <div className="py-16 bg-white relative overflow-hidden">
+        <div className="hidden md:block absolute top-0 right-0 w-full h-full opacity-5">
+          <div className="absolute right-0 top-0 w-80 h-80 bg-job-primary rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute left-0 bottom-0 w-64 h-64 bg-job-secondary rounded-full translate-y-1/2 -translate-x-1/2"></div>
+        </div>
+        <div className="container mx-auto px-4 relative">
+          <div className="bg-gradient-to-r from-job-primary to-job-secondary text-white rounded-xl p-8 md:p-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Take the Next Step in Your Career?
             </h2>
@@ -136,7 +151,7 @@ const Home: React.FC = () => {
                 </Button>
               </Link>
               <Link to="/register">
-                <Button variant="outline" className="border-white text-white bg-job-secondary text-lg px-8">
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8">
                   Create Account
                 </Button>
               </Link>
@@ -160,7 +175,7 @@ const Home: React.FC = () => {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <div className="bg-job-light p-1 rounded-full mr-2 mt-1">
-                    <Briefcase className="h-4 w-4 text-job-primary" />
+                    <Globe className="h-4 w-4 text-job-primary" />
                   </div>
                   <span className="text-gray-700">
                     Post unlimited job listings
@@ -168,7 +183,7 @@ const Home: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <div className="bg-job-light p-1 rounded-full mr-2 mt-1">
-                    <Briefcase className="h-4 w-4 text-job-primary" />
+                    <User className="h-4 w-4 text-job-primary" />
                   </div>
                   <span className="text-gray-700">
                     Access a database of qualified candidates
@@ -176,7 +191,7 @@ const Home: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <div className="bg-job-light p-1 rounded-full mr-2 mt-1">
-                    <Briefcase className="h-4 w-4 text-job-primary" />
+                    <Award className="h-4 w-4 text-job-primary" />
                   </div>
                   <span className="text-gray-700">
                     Streamlined application management
@@ -189,19 +204,23 @@ const Home: React.FC = () => {
                 </Button>
               </Link>
             </div>
-            <div className="lg:w-1/2 bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="font-semibold mb-4">Demo Admin Credentials</h3>
-              <div className="bg-gray-50 p-4 rounded-md text-gray-800">
-                <p>
-                  <span className="font-medium">Email:</span> admin@demo.com
-                </p>
-                <p>
-                  <span className="font-medium">Password:</span> admin123
-                </p>
-                <p className="text-sm text-gray-600 mt-2">
-                  Use these credentials to access the admin panel and try out employer features.
-                </p>
-              </div>
+            <div className="lg:w-1/2">
+              <AspectRatio ratio={16/9} className="bg-white p-6 rounded-lg border border-gray-200">
+                <div className="h-full flex flex-col justify-center">
+                  <h3 className="font-semibold mb-4">Demo Admin Credentials</h3>
+                  <div className="bg-gray-50 p-4 rounded-md text-gray-800">
+                    <p>
+                      <span className="font-medium">Email:</span> admin@demo.com
+                    </p>
+                    <p>
+                      <span className="font-medium">Password:</span> admin123
+                    </p>
+                    <p className="text-sm text-gray-600 mt-2">
+                      Use these credentials to access the admin panel and try out employer features.
+                    </p>
+                  </div>
+                </div>
+              </AspectRatio>
             </div>
           </div>
         </div>

@@ -20,7 +20,6 @@ import {
   LayoutDashboard,
   FileText,
   User,
-  Settings,
   LogOut,
   ScrollText,
 } from "lucide-react";
@@ -96,8 +95,11 @@ const AppSidebar = () => {
       <SidebarRail />
       <SidebarHeader className="p-4">
         <div className="flex items-center gap-2">
-          <Briefcase className="h-6 w-6 text-job-primary" />
-          <span className="text-xl font-bold">NM-HR</span>
+          <img 
+            src="/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" 
+            alt="NM-HR Logo" 
+            className="h-8" 
+          />
         </div>
       </SidebarHeader>
       <SidebarContent>

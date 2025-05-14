@@ -6,6 +6,7 @@ import SidebarWrapper from "./Sidebar";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useAuth } from "@/contexts/AuthContext";
+import BackgroundElements from "./BackgroundElements";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -13,6 +14,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   
   return (
     <div className="flex flex-col min-h-screen">
+      <BackgroundElements />
       <Navbar />
       {isAuthenticated ? (
         <SidebarWrapper>
