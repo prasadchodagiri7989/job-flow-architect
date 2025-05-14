@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold text-gray-900">JobQuest</h3>
+            <h3 className="text-lg font-bold text-gray-900">NM-HR</h3>
             <p className="text-sm text-gray-600 mt-1">
               Find your dream job or perfect candidate
             </p>
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} JobQuest. All rights reserved.
+            &copy; {new Date().getFullYear()} NM-HR. All rights reserved.
           </div>
         </div>
       </div>

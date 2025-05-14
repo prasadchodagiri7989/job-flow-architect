@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <Briefcase className="h-6 w-6 text-job-primary" />
-          <span className="text-xl font-bold text-gray-900">JobQuest</span>
+          <span className="text-xl font-bold text-gray-900">NM-HR</span>
         </Link>
 
         <div className="flex gap-4 items-center">
