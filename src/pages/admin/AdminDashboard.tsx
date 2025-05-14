@@ -72,34 +72,7 @@ const AdminDashboard: React.FC = () => {
               </Button>
             </CardContent>
           </Card>
-          
-          <Card className="border-0 shadow-md">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-500">
-                Total Applications
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center">
-                <div className="bg-green-100 p-2 rounded-full mr-3">
-                  <FileText className="h-5 w-5 text-green-600" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">{applications.length}</div>
-                  <div className="text-xs text-gray-500">Received applications</div>
-                </div>
-              </div>
-              <Button 
-                variant="ghost" 
-                className="w-full mt-4 text-green-600 hover:bg-green-50" 
-                size="sm"
-                onClick={() => navigate("/admin/applications")}
-              >
-                View All Applications
-              </Button>
-            </CardContent>
-          </Card>
-          
+
           <Card className="border-0 shadow-md">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-gray-500">
