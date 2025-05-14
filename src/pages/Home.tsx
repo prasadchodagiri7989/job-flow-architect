@@ -151,7 +151,7 @@ const Home: React.FC = () => {
                 </Button>
               </Link>
               <Link to="/register">
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8">
+                <Button variant="outline" className="border-white text-white bg-white/10 text-lg px-8">
                   Create Account
                 </Button>
               </Link>
