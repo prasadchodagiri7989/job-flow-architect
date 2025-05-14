@@ -18,6 +18,8 @@ import UserApplications from "./pages/UserApplications";
 import ResumeBuilder from "./pages/ResumeBuilder";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminJobs from "./pages/admin/AdminJobs";
+import CreateJob from "./pages/admin/CreateJob";
+import JobApplicants from "./pages/admin/JobApplicants";
 import AdminApplications from "./pages/admin/AdminApplications";
 import Unauthorized from "./pages/Unauthorized";
 import NotFound from "./pages/NotFound";
@@ -84,6 +86,22 @@ const App = () => (
                 element={
                   <ProtectedRoute adminOnly={true}>
                     <AdminJobs />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/jobs/create"
+                element={
+                  <ProtectedRoute adminOnly={true}>
+                    <CreateJob />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/jobs/:id/applicants"
+                element={
+                  <ProtectedRoute adminOnly={true}>
+                    <JobApplicants />
                   </ProtectedRoute>
                 }
               />

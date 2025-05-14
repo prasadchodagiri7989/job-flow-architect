@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
 import { useJobs } from "../../contexts/JobContext";
 import { useAuth } from "../../contexts/AuthContext";
@@ -10,15 +10,16 @@ import {
   Briefcase,
   Users,
   Clock,
-  BarChart3,
   FileText,
   CheckCircle,
   XCircle,
+  Eye,
 } from "lucide-react";
 
 const AdminDashboard: React.FC = () => {
   const { jobs, applications } = useJobs();
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
   
   const pendingApplications = applications.filter(app => app.status === 'pending').length;
   const reviewedApplications = applications.filter(app => app.status === 'reviewed').length;
@@ -36,11 +37,12 @@ const AdminDashboard: React.FC = () => {
             </p>
           </div>
           
-          <Link to="/admin/jobs/create">
-            <Button className="bg-job-primary hover:bg-job-secondary">
-              Post New Job
-            </Button>
-          </Link>
+          <Button 
+            className="bg-job-primary hover:bg-job-secondary"
+            onClick={() => navigate("/admin/jobs/create")}
+          >
+            Post New Job
+          </Button>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -60,6 +62,14 @@ const AdminDashboard: React.FC = () => {
                   <div className="text-xs text-gray-500">Active listings</div>
                 </div>
               </div>
+              <Button 
+                variant="ghost" 
+                className="w-full mt-4 text-blue-600 hover:bg-blue-50" 
+                size="sm"
+                onClick={() => navigate("/admin/jobs")}
+              >
+                Manage Jobs
+              </Button>
             </CardContent>
           </Card>
           
@@ -79,6 +89,14 @@ const AdminDashboard: React.FC = () => {
                   <div className="text-xs text-gray-500">Received applications</div>
                 </div>
               </div>
+              <Button 
+                variant="ghost" 
+                className="w-full mt-4 text-green-600 hover:bg-green-50" 
+                size="sm"
+                onClick={() => navigate("/admin/applications")}
+              >
+                View All Applications
+              </Button>
             </CardContent>
           </Card>
           
@@ -126,8 +144,8 @@ const AdminDashboard: React.FC = () => {
             <Card className="border-0 shadow-md h-full">
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle>Recent Applications</CardTitle>
-                  <Link to="/admin/applications">
+                  <CardTitle>Recent Jobs</CardTitle>
+                  <Link to="/admin/jobs">
                     <Button variant="link" className="text-job-primary">
                       View All
                     </Button>
@@ -135,47 +153,35 @@ const AdminDashboard: React.FC = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                {applications.length > 0 ? (
+                {jobs.length > 0 ? (
                   <div className="space-y-4">
-                    {applications.slice(0, 5).map((application) => {
-                      const job = jobs.find((j) => j.id === application.jobId);
+                    {jobs.slice(0, 5).map((job) => {
+                      const applicantCount = applications.filter(app => app.jobId === job.id).length;
                       return (
-                        <div key={application.id} className="flex items-center justify-between border-b pb-4 last:border-0">
+                        <div key={job.id} className="flex items-center justify-between border-b pb-4 last:border-0">
                           <div className="flex items-start">
                             <div className="bg-gray-100 p-2 rounded-full mr-3">
-                              <FileText className="h-4 w-4 text-gray-600" />
+                              <Briefcase className="h-4 w-4 text-gray-600" />
                             </div>
                             <div>
-                              <p className="font-medium">{application.name}</p>
+                              <p className="font-medium">{job.title}</p>
                               <p className="text-sm text-gray-600">
-                                {job?.title || "Unknown Job"}
+                                {job.company}
                               </p>
                               <p className="text-xs text-gray-500">
-                                {new Date(application.appliedAt).toLocaleDateString()}
+                                {new Date(job.createdAt).toLocaleDateString()} • {applicantCount} {applicantCount === 1 ? 'applicant' : 'applicants'}
                               </p>
                             </div>
                           </div>
                           <div>
-                            {application.status === "pending" && (
-                              <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                                Pending
-                              </span>
-                            )}
-                            {application.status === "reviewed" && (
-                              <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                                Reviewed
-                              </span>
-                            )}
-                            {application.status === "accepted" && (
-                              <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                                Accepted
-                              </span>
-                            )}
-                            {application.status === "rejected" && (
-                              <span className="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                                Rejected
-                              </span>
-                            )}
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              onClick={() => navigate(`/admin/jobs/${job.id}/applicants`)}
+                              className="flex items-center gap-1"
+                            >
+                              <Eye className="h-3 w-3" /> View
+                            </Button>
                           </div>
                         </div>
                       );
@@ -183,8 +189,14 @@ const AdminDashboard: React.FC = () => {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <FileText className="h-8 w-8 mx-auto text-gray-400 mb-2" />
-                    <p className="text-gray-600">No applications yet</p>
+                    <Briefcase className="h-8 w-8 mx-auto text-gray-400 mb-2" />
+                    <p className="text-gray-600">No jobs yet</p>
+                    <Button
+                      className="mt-4 bg-job-primary hover:bg-job-secondary"
+                      onClick={() => navigate("/admin/jobs/create")}
+                    >
+                      Create Job
+                    </Button>
                   </div>
                 )}
               </CardContent>
@@ -248,6 +260,14 @@ const AdminDashboard: React.FC = () => {
                     <div className="bg-yellow-500 h-2.5 rounded-full" style={{ width: `${pendingApplications / Math.max(1, applications.length) * 100}%` }}></div>
                   </div>
                 </div>
+                
+                <Button 
+                  variant="outline" 
+                  className="w-full mt-6" 
+                  onClick={() => navigate("/admin/applications")}
+                >
+                  View All Applications
+                </Button>
               </CardContent>
             </Card>
           </div>

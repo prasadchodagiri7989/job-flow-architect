@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
 import { useJobs, Job } from "../../contexts/JobContext";
 import JobCard from "../../components/jobs/JobCard";
@@ -27,10 +27,19 @@ import {
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Search, Plus } from "lucide-react";
+import { Search, Plus, Users, Eye, Edit, Trash2 } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const AdminJobs: React.FC = () => {
-  const { jobs, deleteJob, addJob, updateJob } = useJobs();
+  const navigate = useNavigate();
+  const { jobs, deleteJob, addJob, updateJob, getApplicationsForJob } = useJobs();
   
   const [searchTerm, setSearchTerm] = useState("");
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -167,7 +176,7 @@ const AdminJobs: React.FC = () => {
           <h1 className="text-2xl md:text-3xl font-bold">Manage Jobs</h1>
           <Button
             className="bg-job-primary hover:bg-job-secondary gap-2"
-            onClick={openCreateDialog}
+            onClick={() => navigate("/admin/jobs/create")}
           >
             <Plus className="h-4 w-4" /> Post New Job
           </Button>
@@ -187,21 +196,91 @@ const AdminJobs: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredJobs.length > 0 ? (
-            filteredJobs.map((job) => (
-              <JobCard
-                key={job.id}
-                job={job}
-                isAdmin={true}
-                onDelete={() => openDeleteDialog(job.id)}
-                onEdit={() => openEditDialog(job)}
-              />
-            ))
+            filteredJobs.map((job) => {
+              const applicantCount = getApplicationsForJob(job.id).length;
+              
+              return (
+                <Card key={job.id} className="overflow-hidden border border-gray-200 shadow-sm hover:shadow transition-shadow">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-xl">{job.title}</CardTitle>
+                    <p className="text-sm text-gray-600">{job.company}</p>
+                  </CardHeader>
+                  
+                  <CardContent>
+                    <div className="mb-4">
+                      <p className="text-sm text-gray-600 mb-2">{job.shortDescription}</p>
+                      <div className="flex flex-wrap gap-1">
+                        {job.location && (
+                          <Badge variant="outline" className="text-xs">
+                            {job.location}
+                          </Badge>
+                        )}
+                        {job.salary && (
+                          <Badge variant="outline" className="text-xs">
+                            {job.salary}
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-1 mt-3">
+                      {job.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                  
+                  <CardFooter className="flex justify-between pt-2 border-t">
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Users className="h-4 w-4 mr-1" />
+                      <span>
+                        {applicantCount} {applicantCount === 1 ? "Applicant" : "Applicants"}
+                      </span>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => navigate(`/admin/jobs/${job.id}/applicants`)}
+                        className="h-8"
+                      >
+                        <Eye className="h-4 w-4 mr-1" />
+                        View
+                      </Button>
+                      
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => openEditDialog(job)}
+                        className="h-8"
+                      >
+                        <Edit className="h-4 w-4 mr-1" />
+                        Edit
+                      </Button>
+                      
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => openDeleteDialog(job.id)}
+                        className="h-8 text-red-500 hover:text-red-700 hover:bg-red-50"
+                      >
+                        <Trash2 className="h-4 w-4 mr-1" />
+                        Delete
+                      </Button>
+                    </div>
+                  </CardFooter>
+                </Card>
+              );
+            })
           ) : (
             <div className="col-span-3 text-center py-12">
               <p className="text-gray-500">No jobs found. Create a new job.</p>
               <Button
                 className="mt-4 bg-job-primary hover:bg-job-secondary"
-                onClick={openCreateDialog}
+                onClick={() => navigate("/admin/jobs/create")}
               >
                 Create Job
               </Button>
@@ -228,7 +307,7 @@ const AdminJobs: React.FC = () => {
           </AlertDialogContent>
         </AlertDialog>
 
-        {/* Job Create/Edit Dialog */}
+        {/* Job Edit Dialog */}
         <Dialog open={jobDialogOpen} onOpenChange={setJobDialogOpen}>
           <DialogContent className="sm:max-w-[600px]">
             <DialogHeader>
