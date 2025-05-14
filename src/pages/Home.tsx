@@ -204,24 +204,6 @@ const Home: React.FC = () => {
                 </Button>
               </Link>
             </div>
-            <div className="lg:w-1/2">
-              <AspectRatio ratio={16/9} className="bg-white p-6 rounded-lg border border-gray-200">
-                <div className="h-full flex flex-col justify-center">
-                  <h3 className="font-semibold mb-4">Demo Admin Credentials</h3>
-                  <div className="bg-gray-50 p-4 rounded-md text-gray-800">
-                    <p>
-                      <span className="font-medium">Email:</span> admin@demo.com
-                    </p>
-                    <p>
-                      <span className="font-medium">Password:</span> admin123
-                    </p>
-                    <p className="text-sm text-gray-600 mt-2">
-                      Use these credentials to access the admin panel and try out employer features.
-                    </p>
-                  </div>
-                </div>
-              </AspectRatio>
-            </div>
           </div>
         </div>
       </div>
