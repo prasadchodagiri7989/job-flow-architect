@@ -233,14 +233,6 @@ const AdminDashboard: React.FC = () => {
                     <div className="bg-yellow-500 h-2.5 rounded-full" style={{ width: `${pendingApplications / Math.max(1, applications.length) * 100}%` }}></div>
                   </div>
                 </div>
-                
-                <Button 
-                  variant="outline" 
-                  className="w-full mt-6" 
-                  onClick={() => navigate("/admin/applications")}
-                >
-                  View All Applications
-                </Button>
               </CardContent>
             </Card>
           </div>
