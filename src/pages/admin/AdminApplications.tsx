@@ -66,7 +66,8 @@ const AdminApplications: React.FC = () => {
     setViewingApplication(app);
   };
 
-  const handleStatusChange = (status: string) => {
+  // Update the function to accept only the specific status values defined in the Application type
+  const handleStatusChange = (status: "pending" | "reviewed" | "rejected" | "accepted") => {
     if (!viewingApplication) return;
 
     const updatedApplication = { ...viewingApplication, status };
