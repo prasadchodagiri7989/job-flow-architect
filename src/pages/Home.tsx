@@ -1,16 +1,50 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useJobs } from "../contexts/JobContext";
 import JobCard from "../components/jobs/JobCard";
-import { Briefcase, Search, Users, FileText, User, Globe, Award } from "lucide-react";
+import { 
+  Briefcase, 
+  Search, 
+  Users, 
+  Globe, 
+  Award, 
+  TrendingUp, 
+  Calendar, 
+  Mail, 
+  Phone
+} from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Card, CardContent } from "@/components/ui/card";
 
 const Home: React.FC = () => {
   const { jobs } = useJobs();
 
   const latestJobs = jobs.slice(0, 3);
+
+  const clientLogos = [
+    { name: "Mug Company", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
+    { name: "NBTC", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
+    { name: "Ferropan", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
+    { name: "Growmaxx", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
+    { name: "Target", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
+  ];
+
+  const highlights = [
+    { title: "Companies Helped", count: "264+" },
+    { title: "Permanent Recruitments", count: "468+" },
+    { title: "Overseas Recruitments", count: "322+" },
+    { title: "Resumes Screened", count: "10,000+" },
+    { title: "Happy Customers", count: "2887" },
+  ];
+
+  const testimonials = [
+    { text: "NM Consultancy made hiring so easy for us.", author: "Ganesh" },
+    { text: "Quick results, highly professional.", author: "Harsha" },
+    { text: "Smooth hiring experience.", author: "Chandu" },
+  ];
 
   return (
     <Layout>
@@ -26,10 +60,13 @@ const Home: React.FC = () => {
               }}
             ></div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Your Trusted Recruitment Partner
+              Your Recruitment Partner
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8">
-              Empowering careers and businesses with reliable staffing solutions across industries.
+            <p className="text-xl md:text-2xl text-job-primary font-semibold mb-6">
+              Talent is the key to Growth
+            </p>
+            <p className="text-lg text-gray-600 mb-8">
+              To be the most reliable and trustworthy global recruitment partner to both our clients and candidates.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/jobs" className="flex-1 sm:flex-none">
@@ -47,8 +84,174 @@ const Home: React.FC = () => {
         </div>
       </div>
 
+      {/* Services section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+            Services Offered
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden border border-gray-100">
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
+              <div className="flex justify-center mb-4">
+                <div className="bg-job-light p-3 rounded-full">
+                  <Globe className="h-6 w-6 text-job-primary" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Overseas Recruitment</h3>
+              <p className="text-gray-600">
+                Fully-vetted, engaged candidates to save time and resources.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden border border-gray-100">
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
+              <div className="flex justify-center mb-4">
+                <div className="bg-job-light p-3 rounded-full">
+                  <Users className="h-6 w-6 text-job-primary" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Executive Search</h3>
+              <p className="text-gray-600">
+                Human and data-driven sourcing for top-tier executives.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden border border-gray-100">
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
+              <div className="flex justify-center mb-4">
+                <div className="bg-job-light p-3 rounded-full">
+                  <Briefcase className="h-6 w-6 text-job-primary" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Temporary Staffing</h3>
+              <p className="text-gray-600">
+                Experienced networks to find innovators and business thinkers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Core Solutions Section */}
+      <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+            Core Solutions
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm relative overflow-hidden border border-gray-100">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-job-light p-2 rounded-full">
+                  <Search className="h-5 w-5 text-job-primary" />
+                </div>
+                <h3 className="text-xl font-bold">Recruitment Solutions</h3>
+              </div>
+              <p className="text-gray-600">
+                End-to-end recruitment services tailored to your needs.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm relative overflow-hidden border border-gray-100">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-job-light p-2 rounded-full">
+                  <TrendingUp className="h-5 w-5 text-job-primary" />
+                </div>
+                <h3 className="text-xl font-bold">Leadership Training</h3>
+              </div>
+              <p className="text-gray-600">
+                Developing strong leadership skills for your organization.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm relative overflow-hidden border border-gray-100">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-job-light p-2 rounded-full">
+                  <Users className="h-5 w-5 text-job-primary" />
+                </div>
+                <h3 className="text-xl font-bold">Improving Resources</h3>
+              </div>
+              <p className="text-gray-600">
+                Resource optimization and management for business success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Highlights section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+            Our Highlights
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {highlights.map((highlight, index) => (
+              <Card key={index} className="border border-gray-100 hover:border-job-primary transition-colors">
+                <CardContent className="p-6 text-center">
+                  <p className="text-3xl md:text-4xl font-bold text-job-primary mb-2">{highlight.count}</p>
+                  <p className="text-gray-600 text-sm">{highlight.title}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Process workflow */}
+      <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+            Our Process
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="relative">
+              <div className="flex items-center gap-4">
+                <div className="bg-job-primary text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">
+                  1
+                </div>
+                <h3 className="text-xl font-bold">Understand the Requirements</h3>
+              </div>
+              <div className="ml-5 border-l-2 border-dashed border-job-light h-full absolute top-10 left-4"></div>
+              <p className="ml-14 mt-3 text-gray-600">
+                Initial consultation via email to understand your specific needs.
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="flex items-center gap-4">
+                <div className="bg-job-primary text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">
+                  2
+                </div>
+                <h3 className="text-xl font-bold">Vetting the Candidates</h3>
+              </div>
+              <div className="ml-5 border-l-2 border-dashed border-job-light h-full absolute top-10 left-4"></div>
+              <p className="ml-14 mt-3 text-gray-600">
+                Thorough screening process to ensure quality matches.
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="flex items-center gap-4">
+                <div className="bg-job-primary text-white w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold">
+                  3
+                </div>
+                <h3 className="text-xl font-bold">Placing the Job</h3>
+              </div>
+              <p className="ml-14 mt-3 text-gray-600">
+                Final placement and follow-up to ensure satisfaction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Featured jobs section */}
-      <div className="py-16 relative">
+      <div className="py-16 bg-white relative">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold">Latest Job Openings</h2>
@@ -57,7 +260,7 @@ const Home: React.FC = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {latestJobs.map((job) => (
               <JobCard key={job.id} job={job} />
             ))}
@@ -73,128 +276,117 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Features section */}
+      {/* Expertise */}
       <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            Why Choose NM-HR
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden">
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
-              <div className="flex justify-center mb-4 relative">
-                <div className="bg-job-light p-3 rounded-full">
-                  <Search className="h-6 w-6 text-job-primary" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Precision Hiring</h3>
-              <p className="text-gray-600">
-                We understand your recruitment needs and deliver candidates tailored to your goals.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden">
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
-              <div className="flex justify-center mb-4">
-                <div className="bg-job-light p-3 rounded-full">
-                  <FileText className="h-6 w-6 text-job-primary" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Resume Enhancement</h3>
-              <p className="text-gray-600">
-                Our AI-backed resume services boost your visibility and impact with employers.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden">
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
-              <div className="flex justify-center mb-4">
-                <div className="bg-job-light p-3 rounded-full">
-                  <Users className="h-6 w-6 text-job-primary" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Strong Industry Ties</h3>
-              <p className="text-gray-600">
-                We collaborate with top-tier companies across sectors, ensuring quality placements.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA section */}
-      <div className="py-16 bg-white relative overflow-hidden">
-        <div className="hidden md:block absolute top-0 right-0 w-full h-full opacity-5">
-          <div className="absolute right-0 top-0 w-80 h-80 bg-job-primary rounded-full -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute left-0 bottom-0 w-64 h-64 bg-job-secondary rounded-full translate-y-1/2 -translate-x-1/2"></div>
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <div className="bg-gradient-to-r from-job-primary to-job-secondary text-white rounded-xl p-8 md:p-12 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Join Thousands Who Trust NM HR
-            </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              With 20+ years of experience, NM HR Consultancy has connected thousands of professionals to their dream roles.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/jobs">
-                <Button className="bg-white text-job-primary hover:bg-gray-100 text-lg px-8">
-                  Find Jobs
-                </Button>
-              </Link>
-              <Link to="/register">
-                <Button variant="outline" className="border-white text-white bg-white/10 text-lg px-8">
-                  Create Account
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* For Employers section */}
-      <div className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="lg:w-1/2">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                For Employers
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="md:w-1/2">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Our Expertise
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Partner with us to access exceptional talent across IT, non-IT, and overseas roles.
-              </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="bg-job-light p-1 rounded-full mr-2 mt-1">
-                    <Globe className="h-4 w-4 text-job-primary" />
+                  <div className="bg-job-light p-1 rounded-full mr-3 mt-1">
+                    <Award className="h-5 w-5 text-job-primary" />
                   </div>
-                  <span className="text-gray-700">
-                    Post unlimited job listings with visibility
-                  </span>
+                  <div>
+                    <span className="text-lg font-semibold block">20+ years of experience</span>
+                    <span className="text-gray-600">Delivering quality recruitment solutions across industries</span>
+                  </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-job-light p-1 rounded-full mr-2 mt-1">
-                    <User className="h-4 w-4 text-job-primary" />
+                  <div className="bg-job-light p-1 rounded-full mr-3 mt-1">
+                    <Calendar className="h-5 w-5 text-job-primary" />
                   </div>
-                  <span className="text-gray-700">
-                    Access a curated pool of verified candidates
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-job-light p-1 rounded-full mr-2 mt-1">
-                    <Award className="h-4 w-4 text-job-primary" />
+                  <div>
+                    <span className="text-lg font-semibold block">Decade of recruitment expertise</span>
+                    <span className="text-gray-600">In both IT and Non-IT domains</span>
                   </div>
-                  <span className="text-gray-700">
-                    Streamlined end-to-end recruitment services
-                  </span>
                 </li>
               </ul>
-              <Link to="/login">
-                <Button className="bg-job-primary hover:bg-job-secondary">
-                  Post a Job
-                </Button>
-              </Link>
+            </div>
+            <div className="md:w-1/2 mt-8 md:mt-0 bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-bold mb-4">Client Testimonials</h3>
+              <div className="space-y-4">
+                {testimonials.map((testimonial, index) => (
+                  <div key={index} className="border-l-4 border-job-primary pl-4">
+                    <p className="italic text-gray-600">"{testimonial.text}"</p>
+                    <p className="text-job-primary font-semibold mt-2">– {testimonial.author}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Clients */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+            Our Clients
+          </h2>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            {clientLogos.map((client, index) => (
+              <div key={index} className="w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                <img 
+                  src={client.logo} 
+                  alt={client.name} 
+                  className="max-h-full max-w-full"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CTA and contact section */}
+      <div className="py-16 bg-gradient-to-br from-job-background via-white to-job-light relative">
+        <div className="container mx-auto px-4">
+          <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+              Get in Touch
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-center">
+                    <div className="bg-job-light p-2 rounded-full mr-3">
+                      <Mail className="h-5 w-5 text-job-primary" />
+                    </div>
+                    <span>recruit@nmhruae.com</span>
+                  </li>
+                  <li className="flex items-center">
+                    <div className="bg-job-light p-2 rounded-full mr-3">
+                      <Phone className="h-5 w-5 text-job-primary" />
+                    </div>
+                    <span>+971 58 187 9994</span>
+                  </li>
+                  <li className="flex items-center">
+                    <div className="bg-job-light p-2 rounded-full mr-3">
+                      <Globe className="h-5 w-5 text-job-primary" />
+                    </div>
+                    <span>Abu Dhabi, UAE</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Newsletter</h3>
+                <p className="text-gray-600 mb-4">
+                  Join our newsletter for the latest updates.
+                </p>
+                <div className="flex gap-2">
+                  <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-job-primary" 
+                  />
+                  <Button className="bg-job-primary hover:bg-job-secondary">
+                    Subscribe
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
