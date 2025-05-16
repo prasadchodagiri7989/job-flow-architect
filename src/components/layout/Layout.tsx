@@ -18,7 +18,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Navbar />
       {isAuthenticated && isMobile  ? (
         <SidebarWrapper>
-          <div className="flex-grow flex flex-col min-h-[calc(100vh-64px)]">
+          <div className="flex flex-col min-h-[calc(100vh-64px)]">
             {isMobile && (
               <div className="mb-4">
                 <SidebarTrigger className="block md:hidden" />
@@ -29,10 +29,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
         </SidebarWrapper>
       ) : (
-        <>
+        <div className="flex flex-col min-h-screen">
           <main className="flex-grow">{children}</main>
           <Footer />
-        </>
+        </div>
       )}
     </div>
   );

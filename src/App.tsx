@@ -23,6 +23,7 @@ import JobApplicants from "./pages/admin/JobApplicants";
 import AdminApplications from "./pages/admin/AdminApplications";
 import Unauthorized from "./pages/Unauthorized";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 
 // Components
 import ProtectedRoute from "./components/layout/ProtectedRoute";
@@ -44,6 +45,7 @@ const App = () => (
               <Route path="/register" element={<Register />} />
               <Route path="/jobs" element={<JobsList />} />
               <Route path="/jobs/:id" element={<JobDetail />} />
+              <Route path="/about" element={<About />} />
               <Route path="/unauthorized" element={<Unauthorized />} />
 
               {/* User routes */}
