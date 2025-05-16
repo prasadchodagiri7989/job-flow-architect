@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Job } from "../../contexts/JobContext";
 import { useAuth } from "../../contexts/AuthContext";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Wrench, PaintRoller, Building } from "lucide-react";
 
 interface JobCardProps {
   job: Job;
@@ -13,6 +13,22 @@ interface JobCardProps {
   onDelete?: (id: string) => void;
   onEdit?: (job: Job) => void;
 }
+
+// Helper function to determine which icon to use based on job tags
+const getJobIcon = (tags: string[]) => {
+  const lowerTags = tags.map(t => t.toLowerCase());
+  
+  if (lowerTags.some(t => t.includes('plumb') || t.includes('electric') || t.includes('hvac') || t.includes('repair'))) {
+    return <Wrench className="h-5 w-5 text-job-primary" />;
+  } else if (lowerTags.some(t => t.includes('paint') || t.includes('tile') || t.includes('carpentry'))) {
+    return <PaintRoller className="h-5 w-5 text-job-primary" />;
+  } else if (lowerTags.some(t => t.includes('commercial') || t.includes('residential'))) {
+    return <Building className="h-5 w-5 text-job-primary" />;
+  }
+  
+  // Default icon
+  return <Briefcase className="h-5 w-5 text-job-primary" />;
+};
 
 const JobCard: React.FC<JobCardProps> = ({ job, isAdmin, onDelete, onEdit }) => {
   const { isAuthenticated } = useAuth();
@@ -30,7 +46,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, isAdmin, onDelete, onEdit }) => 
             <p className="text-gray-600 mb-2">{job.company} • {job.location}</p>
           </div>
           <div className="bg-job-light p-2 rounded-full">
-            <Briefcase className="h-5 w-5 text-job-primary" />
+            {getJobIcon(job.tags)}
           </div>
         </div>
         
