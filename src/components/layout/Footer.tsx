@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { Globe, Briefcase, Users, Phone, Mail, FileText, Shield } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
@@ -11,23 +12,26 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold text-gray-900 mb-4">About NM-HR</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-gray-600 hover:text-job-primary">
-                  About
+                <Link to="/about" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <span>About</span>
                 </Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-600 hover:text-job-primary">
-                  Our Solutions
+                <Link to="/our-solutions" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <Globe className="h-4 w-4 mr-2" />
+                  <span>Our Solutions</span>
                 </Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-600 hover:text-job-primary">
-                  Team Members
+                <Link to="/team-members" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <Users className="h-4 w-4 mr-2" />
+                  <span>Team Members</span>
                 </Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-600 hover:text-job-primary">
-                  Contact Us
+                <Link to="/contact-us" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <Phone className="h-4 w-4 mr-2" />
+                  <span>Contact Us</span>
                 </Link>
               </li>
             </ul>
@@ -37,18 +41,19 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold text-gray-900 mb-4">For You</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="#" className="text-gray-600 hover:text-job-primary">
-                  Employers
+                <Link to="/employers" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <Briefcase className="h-4 w-4 mr-2" />
+                  <span>Employers</span>
                 </Link>
               </li>
               <li>
-                <Link to="/jobs" className="text-gray-600 hover:text-job-primary">
-                  Job Seekers
+                <Link to="/jobs" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <span>Job Seekers</span>
                 </Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-600 hover:text-job-primary">
-                  Pricing & Plans
+                <Link to="/pricing-plans" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <span>Pricing & Plans</span>
                 </Link>
               </li>
             </ul>
@@ -58,13 +63,15 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold text-gray-900 mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="#" className="text-gray-600 hover:text-job-primary">
-                  Privacy Policy
+                <Link to="/privacy-policy" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <Shield className="h-4 w-4 mr-2" />
+                  <span>Privacy Policy</span>
                 </Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-600 hover:text-job-primary">
-                  Terms & Conditions
+                <Link to="/terms-conditions" className="text-gray-600 hover:text-job-primary flex items-center">
+                  <FileText className="h-4 w-4 mr-2" />
+                  <span>Terms & Conditions</span>
                 </Link>
               </li>
             </ul>
@@ -73,14 +80,22 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold text-gray-900 mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="text-gray-600">
-                Email: recruit@nmhruae.com
+              <li className="flex items-start">
+                <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
+                <span className="text-gray-600">
+                  Email: recruit@nmhruae.com
+                </span>
               </li>
-              <li className="text-gray-600">
-                Phone: +971 58 187 9994
+              <li className="flex items-start">
+                <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
+                <span className="text-gray-600">
+                  Phone: +971 58 187 9994
+                </span>
               </li>
-              <li className="text-gray-600">
-                Abu Dhabi, UAE
+              <li className="flex items-start">
+                <span className="text-gray-600 ml-6">
+                  Abu Dhabi, UAE
+                </span>
               </li>
             </ul>
           </div>

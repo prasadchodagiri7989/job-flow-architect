@@ -25,6 +25,15 @@ import Unauthorized from "./pages/Unauthorized";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 
+// New pages
+import OurSolutions from "./pages/OurSolutions";
+import TeamMembers from "./pages/TeamMembers";
+import ContactUs from "./pages/ContactUs";
+import Employers from "./pages/Employers";
+import PricingPlans from "./pages/PricingPlans";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+
 // Components
 import ProtectedRoute from "./components/layout/ProtectedRoute";
 
@@ -47,6 +56,15 @@ const App = () => (
               <Route path="/jobs/:id" element={<JobDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/unauthorized" element={<Unauthorized />} />
+              
+              {/* New public routes */}
+              <Route path="/our-solutions" element={<OurSolutions />} />
+              <Route path="/team-members" element={<TeamMembers />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/employers" element={<Employers />} />
+              <Route path="/pricing-plans" element={<PricingPlans />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-conditions" element={<TermsConditions />} />
 
               {/* User routes */}
               <Route
