@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SidebarWrapper from "./Sidebar";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useAuth } from "@/contexts/AuthContext";
 import BackgroundElements from "./BackgroundElements";
 
@@ -19,11 +18,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {isAuthenticated && isMobile ? (
         <SidebarWrapper>
           <div className="flex flex-col min-h-[calc(100vh-64px)]">
-            {isMobile && (
-              <div className="mb-4">
-                <SidebarTrigger className="block md:hidden" />
-              </div>
-            )}
             <div className="flex-grow p-4">{children}</div>
             <Footer />
           </div>
