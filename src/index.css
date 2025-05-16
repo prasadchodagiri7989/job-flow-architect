@@ -116,3 +116,8 @@
 .hero-gradient {
   background: linear-gradient(135deg, rgba(247,249,255,1) 0%, rgba(229,232,255,1) 100%);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+

@@ -33,6 +33,7 @@ import Employers from "./pages/Employers";
 import PricingPlans from "./pages/PricingPlans";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Components
 import ProtectedRoute from "./components/layout/ProtectedRoute";
@@ -47,6 +48,7 @@ const App = () => (
       <AuthProvider>
         <JobProvider>
           <BrowserRouter>
+          <ScrollToTop />
             <Routes>
               {/* Public routes */}
               <Route path="/" element={<Home />} />
