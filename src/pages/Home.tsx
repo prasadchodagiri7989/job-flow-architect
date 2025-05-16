@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
@@ -11,7 +10,6 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const Home: React.FC = () => {
   const { jobs } = useJobs();
 
-  // Get the latest jobs
   const latestJobs = jobs.slice(0, 3);
 
   return (
@@ -28,11 +26,10 @@ const Home: React.FC = () => {
               }}
             ></div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Find Your Dream Job Today
+              Your Trusted Recruitment Partner
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8">
-              Connect with top employers and discover opportunities that match
-              your skills and aspirations.
+              Empowering careers and businesses with reliable staffing solutions across industries.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/jobs" className="flex-1 sm:flex-none">
@@ -91,10 +88,9 @@ const Home: React.FC = () => {
                   <Search className="h-6 w-6 text-job-primary" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">Smart Job Matching</h3>
+              <h3 className="text-xl font-bold mb-2">Precision Hiring</h3>
               <p className="text-gray-600">
-                Find jobs that perfectly match your skills, experience, and
-                career goals.
+                We understand your recruitment needs and deliver candidates tailored to your goals.
               </p>
             </div>
 
@@ -105,10 +101,9 @@ const Home: React.FC = () => {
                   <FileText className="h-6 w-6 text-job-primary" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">AI Resume Builder</h3>
+              <h3 className="text-xl font-bold mb-2">Resume Enhancement</h3>
               <p className="text-gray-600">
-                Create professional resumes with our AI-powered resume builder in
-                minutes.
+                Our AI-backed resume services boost your visibility and impact with employers.
               </p>
             </div>
 
@@ -119,10 +114,9 @@ const Home: React.FC = () => {
                   <Users className="h-6 w-6 text-job-primary" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">Direct Connections</h3>
+              <h3 className="text-xl font-bold mb-2">Strong Industry Ties</h3>
               <p className="text-gray-600">
-                Apply directly to employers and track your application status in
-                real-time.
+                We collaborate with top-tier companies across sectors, ensuring quality placements.
               </p>
             </div>
           </div>
@@ -138,11 +132,10 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 relative">
           <div className="bg-gradient-to-r from-job-primary to-job-secondary text-white rounded-xl p-8 md:p-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Take the Next Step in Your Career?
+              Join Thousands Who Trust NM HR
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join thousands of professionals who have found their dream jobs
-              through NM-HR.
+              With 20+ years of experience, NM HR Consultancy has connected thousands of professionals to their dream roles.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/jobs">
@@ -169,8 +162,7 @@ const Home: React.FC = () => {
                 For Employers
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Find the best talent for your company. Post jobs, review
-                applications, and connect with qualified candidates.
+                Partner with us to access exceptional talent across IT, non-IT, and overseas roles.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -178,7 +170,7 @@ const Home: React.FC = () => {
                     <Globe className="h-4 w-4 text-job-primary" />
                   </div>
                   <span className="text-gray-700">
-                    Post unlimited job listings
+                    Post unlimited job listings with visibility
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -186,7 +178,7 @@ const Home: React.FC = () => {
                     <User className="h-4 w-4 text-job-primary" />
                   </div>
                   <span className="text-gray-700">
-                    Access a database of qualified candidates
+                    Access a curated pool of verified candidates
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -194,7 +186,7 @@ const Home: React.FC = () => {
                     <Award className="h-4 w-4 text-job-primary" />
                   </div>
                   <span className="text-gray-700">
-                    Streamlined application management
+                    Streamlined end-to-end recruitment services
                   </span>
                 </li>
               </ul>
