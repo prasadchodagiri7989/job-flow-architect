@@ -216,7 +216,6 @@ const Home: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold">Understand the Requirements</h3>
               </div>
-              <div className="ml-5 border-l-2 border-dashed border-job-light h-full absolute top-10 left-4"></div>
               <p className="ml-14 mt-3 text-gray-600">
                 Initial consultation via email to understand your specific needs.
               </p>
@@ -229,7 +228,6 @@ const Home: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold">Vetting the Candidates</h3>
               </div>
-              <div className="ml-5 border-l-2 border-dashed border-job-light h-full absolute top-10 left-4"></div>
               <p className="ml-14 mt-3 text-gray-600">
                 Thorough screening process to ensure quality matches.
               </p>
@@ -376,7 +374,7 @@ const Home: React.FC = () => {
                 <p className="text-gray-600 mb-4">
                   Join our newsletter for the latest updates.
                 </p>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <input 
                     type="email" 
                     placeholder="Enter your email" 
