@@ -1,5 +1,5 @@
 
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 export interface Job {
   id: string;
@@ -237,33 +237,10 @@ const sampleUserProfile: UserProfile = {
 export const JobProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // Initialize state from localStorage or use sample data
-  const [jobs, setJobs] = useState<Job[]>(() => {
-    return sampleJobs;
-  });
-
-  const [applications, setApplications] = useState<Application[]>(() => {
-    return sampleApplications;
-  });
-
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(() => {
-    return sampleUserProfile;
-  });
-
-  // Save to localStorage whenever state changes
-  useEffect(() => {
-    localStorage.setItem("jobSearchJobs", JSON.stringify(jobs));
-  }, [jobs]);
-
-  useEffect(() => {
-    localStorage.setItem("jobSearchApplications", JSON.stringify(applications));
-  }, [applications]);
-
-  useEffect(() => {
-    if (userProfile) {
-      localStorage.setItem("jobSearchUserProfile", JSON.stringify(userProfile));
-    }
-  }, [userProfile]);
+  // Initialize state with sample data directly (no localStorage)
+  const [jobs, setJobs] = useState<Job[]>(sampleJobs);
+  const [applications, setApplications] = useState<Application[]>(sampleApplications);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(sampleUserProfile);
 
   // Job CRUD operations
   const addJob = (jobData: Omit<Job, "id" | "createdAt" | "postedBy">) => {
