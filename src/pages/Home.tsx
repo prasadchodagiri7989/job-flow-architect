@@ -469,13 +469,13 @@ const testimonials = [
                     <div className="bg-job-light p-2 rounded-full mr-3">
                       <Mail className="h-5 w-5 text-job-primary" />
                     </div>
-                    <span>recruit@nmhruae.com</span>
+                    <span>ceo@nmhruae.com</span>
                   </li>
                   <li className="flex items-center">
                     <div className="bg-job-light p-2 rounded-full mr-3">
                       <Phone className="h-5 w-5 text-job-primary" />
                     </div>
-                    <span>+971 58 187 9994</span>
+                    <span>+971 54 759 3444</span>
                   </li>
                   <li className="flex items-center">
                     <div className="bg-job-light p-2 rounded-full mr-3">

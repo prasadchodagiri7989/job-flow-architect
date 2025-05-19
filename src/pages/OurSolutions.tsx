@@ -136,7 +136,7 @@ const OurSolutions = () => {
             <p className="mb-6">
               Our Executive Search consultants are based in Abu Dhabi and serve clients across the region.
               <br />
-              📞 Start your leadership hiring journey today — call us at +971 58 187 9994 or email us.
+              📞 Start your leadership hiring journey today — call us at +971 54 759 3444 or email us.
             </p>
             
             <div className="bg-gray-50 p-6 rounded-lg mb-6">
@@ -218,7 +218,7 @@ const OurSolutions = () => {
             <p className="mb-6">
               📍 Our temporary staffing consultants are headquartered in Abu Dhabi and serve companies across the region.
               <br />
-              📞 Contact us at +971 58 187 9994 to find the right people at the right time.
+              📞 Contact us at +971 54 759 3444 to find the right people at the right time.
             </p>
             
             <div className="bg-gray-50 p-6 rounded-lg">

@@ -88,7 +88,7 @@ const ContactUs = () => {
                   <Phone className="h-5 w-5 text-job-primary mr-3 mt-1" />
                   <div>
                     <h3 className="font-medium">Phone</h3>
-                    <p className="text-gray-600">+971 58 187 9994</p>
+                    <p className="text-gray-600">+971 54 759 3444</p>
                   </div>
                 </div>
                 
@@ -96,7 +96,7 @@ const ContactUs = () => {
                   <Mail className="h-5 w-5 text-job-primary mr-3 mt-1" />
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <p className="text-gray-600">recruit@nmhruae.com</p>
+                    <p className="text-gray-600">ceo@nmhruae.com</p>
                   </div>
                 </div>
                 

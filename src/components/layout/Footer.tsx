@@ -83,13 +83,13 @@ const Footer: React.FC = () => {
               <li className="flex items-start">
                 <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
                 <span className="text-gray-600">
-                  Email: recruit@nmhruae.com
+                  Email: ceo@nmhruae.com
                 </span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
                 <span className="text-gray-600">
-                  Phone: +971 58 187 9994
+                  Phone: +971 54 759 3444
                 </span>
               </li>
               <li className="flex items-start">

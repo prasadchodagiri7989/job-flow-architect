@@ -126,8 +126,8 @@ const TermsConditions = () => {
             </p>
             <div className="mt-4 bg-gray-50 p-4 rounded">
               <p className="mb-2"><strong>NM HR Consultancy</strong></p>
-              <p className="mb-2">Email: recruit@nmhruae.com</p>
-              <p className="mb-2">Phone: +971 58 187 9994</p>
+              <p className="mb-2">Email: ceo@nmhruae.com</p>
+              <p className="mb-2">Phone: +971 54 759 3444</p>
               <p>Address: Abu Dhabi, UAE</p>
             </div>
           </div>
