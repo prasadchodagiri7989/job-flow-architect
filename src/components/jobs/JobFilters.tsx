@@ -153,8 +153,8 @@ const JobFilters: React.FC<JobFiltersProps> = ({ onFilterChange }) => {
                 <div>
                   <Label className="mb-2 block">Salary Range (AED)</Label>
                   <div className="flex justify-between mb-2 text-sm text-gray-500">
-                    <span>AED{filters.salaryRange[0].toLocaleString()}</span>
-                    <span>AED{filters.salaryRange[1].toLocaleString()}</span>
+                    <span>AED {filters.salaryRange[0].toLocaleString()}</span>
+                    <span>AED {filters.salaryRange[1].toLocaleString()}</span>
                   </div>
                   <Slider
                     defaultValue={[filters.salaryRange[0], filters.salaryRange[1]]}
@@ -175,8 +175,8 @@ const JobFilters: React.FC<JobFiltersProps> = ({ onFilterChange }) => {
               <div>
                 <h3 className="text-sm font-medium mb-2">Salary Range (AED)</h3>
                 <div className="flex justify-between mb-1 text-sm text-gray-500">
-                  <span>AED{filters.salaryRange[0].toLocaleString()}</span>
-                  <span>AED{filters.salaryRange[1].toLocaleString()}</span>
+                  <span>AED {filters.salaryRange[0].toLocaleString()}</span>
+                  <span>AED {filters.salaryRange[1].toLocaleString()}</span>
                 </div>
                 <div className="w-[300px]">
                   <Slider
