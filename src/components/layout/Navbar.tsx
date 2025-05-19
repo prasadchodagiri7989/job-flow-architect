@@ -25,9 +25,9 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <img 
-            src="/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" 
+            src="/assets/mainlogo.png" 
             alt="NM-HR Logo" 
-            className="h-9" 
+            className="h-14" 
           />
         </Link>
 

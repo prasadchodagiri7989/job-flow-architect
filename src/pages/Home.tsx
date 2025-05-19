@@ -14,7 +14,11 @@ import {
   TrendingUp, 
   Calendar, 
   Mail, 
-  Phone
+  Phone,
+  Building2,
+  UserCheck,
+  FileText,
+  Smile,
 } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,114 +29,194 @@ const Home: React.FC = () => {
   const latestJobs = jobs.slice(0, 3);
 
   const clientLogos = [
-    { name: "Mug Company", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
-    { name: "NBTC", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
-    { name: "Ferropan", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
-    { name: "Growmaxx", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
-    { name: "Target", logo: "/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" },
+    { name: "Mug Company", logo: "/assets/ferropan_company.jpg" },
+    { name: "NBTC", logo: "/assets/growmaxx_company.png" },
+    { name: "Ferropan", logo: "/assets/mug_company.png" },
+    { name: "Growmaxx", logo: "/assets/nbtc_company.png" },
+    { name: "Target", logo: "/assets/target_company.jpg" },
   ];
 
-  const highlights = [
-    { title: "Companies Helped", count: "264+" },
-    { title: "Permanent Recruitments", count: "468+" },
-    { title: "Overseas Recruitments", count: "322+" },
-    { title: "Resumes Screened", count: "10,000+" },
-    { title: "Happy Customers", count: "2887" },
-  ];
+const highlights = [
+  {
+    title: "Companies Helped",
+    count: "264+",
+    icon: <Building2 className="h-6 w-6 text-job-primary mb-2 mx-auto" />,
+  },
+  {
+    title: "Permanent Recruitments",
+    count: "468+",
+    icon: <UserCheck className="h-6 w-6 text-job-primary mb-2 mx-auto" />,
+  },
+  {
+    title: "Overseas Recruitments",
+    count: "322+",
+    icon: <Globe className="h-6 w-6 text-job-primary mb-2 mx-auto" />,
+  },
+  {
+    title: "Resumes Screened",
+    count: "10,000+",
+    icon: <FileText className="h-6 w-6 text-job-primary mb-2 mx-auto" />,
+  },
+  {
+    title: "Happy Customers",
+    count: "2887",
+    icon: <Smile className="h-6 w-6 text-job-primary mb-2 mx-auto" />,
+  },
+];
 
-  const testimonials = [
-    { text: "NM Consultancy made hiring so easy for us.", author: "Ganesh" },
-    { text: "Quick results, highly professional.", author: "Harsha" },
-    { text: "Smooth hiring experience.", author: "Chandu" },
-  ];
+
+const testimonials = [
+  {
+    text: "NM Consultancy made hiring so easy for us.",
+    author: "Ganesh",
+    image: "/assets/review.jpg",
+  },
+  {
+    text: "Quick results, highly professional.",
+    author: "Harsha",
+    image: "/assets/review1.jpeg",
+  },
+  {
+    text: "Smooth hiring experience.",
+    author: "Chandu",
+    image: "/assets/review2.jpg",
+  },
+];
+
 
   return (
     <Layout>
       {/* Hero section */}
-      <div className="bg-gradient-to-br from-job-background via-white to-job-light/30">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-2xl relative">
-            <div 
-              className="hidden md:block absolute -right-20 -top-14 w-40 h-40 opacity-10"
-              style={{
-                backgroundImage: 'radial-gradient(circle, rgba(79, 70, 229, 0.3) 1px, transparent 1px)',
-                backgroundSize: '15px 15px',
-              }}
-            ></div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Your Recruitment Partner
-            </h1>
-            <p className="text-xl md:text-2xl text-job-primary font-semibold mb-6">
-              Talent is the key to Growth
-            </p>
-            <p className="text-lg text-gray-600 mb-8">
-              To be the most reliable and trustworthy global recruitment partner to both our clients and candidates.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/jobs" className="flex-1 sm:flex-none">
-                <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
-                  Browse Jobs
-                </Button>
-              </Link>
-              <Link to="/login" className="flex-1 sm:flex-none">
-                <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-6">
-                  Sign In
-                </Button>
-              </Link>
-            </div>
-          </div>
+<div className="relative">
+  {/* Background image */}
+  <div
+    className="absolute inset-0 z-0"
+    style={{
+      backgroundImage: "url('/assets/slideshow4.jpg')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+    }}
+  ></div>
+
+  {/* Dark overlay with stronger opacity */}
+<div
+  className="absolute inset-0 z-0"
+  style={{
+    background: 'linear-gradient(to right, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  }}
+></div>
+
+
+  {/* Foreground content with light transparent base */}
+  <div className="relative z-10 bg-white/10">
+    <div className="container mx-auto px-4 py-16 md:py-24">
+      <div className="max-w-2xl relative">
+        <div
+          className="hidden md:block absolute -right-20 -top-14 w-40 h-40 opacity-10"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, rgba(79, 70, 229, 0.3) 1px, transparent 1px)',
+            backgroundSize: '15px 15px',
+          }}
+        ></div>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          Your Recruitment Partner
+        </h1>
+        <p className="text-xl md:text-2xl text-white font-semibold mb-6">
+          Talent is the key to Growth
+        </p>
+
+        <p className="text-lg text-gray-200 mb-8">
+          To be the most reliable and trustworthy global recruitment partner to both our clients and candidates.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link to="/jobs" className="flex-1 sm:flex-none">
+            <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
+              Browse Jobs
+            </Button>
+          </Link>
+          <Link to="/login" className="flex-1 sm:flex-none">
+            <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 border-white text-white bg-transparent">
+              Sign In
+            </Button>
+          </Link>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+
 
       {/* Services section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            Services Offered
-          </h2>
+<div className="py-16 bg-white">
+  <div className="container mx-auto px-4">
+    <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+      Services Offered
+    </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden border border-gray-100">
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
-              <div className="flex justify-center mb-4">
-                <div className="bg-job-light p-3 rounded-full">
-                  <Globe className="h-6 w-6 text-job-primary" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Overseas Recruitment</h3>
-              <p className="text-gray-600">
-                Fully-vetted, engaged candidates to save time and resources.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden border border-gray-100">
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
-              <div className="flex justify-center mb-4">
-                <div className="bg-job-light p-3 rounded-full">
-                  <Users className="h-6 w-6 text-job-primary" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Executive Search</h3>
-              <p className="text-gray-600">
-                Human and data-driven sourcing for top-tier executives.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center relative overflow-hidden border border-gray-100">
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/50 rounded-full"></div>
-              <div className="flex justify-center mb-4">
-                <div className="bg-job-light p-3 rounded-full">
-                  <Briefcase className="h-6 w-6 text-job-primary" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Temporary Staffing</h3>
-              <p className="text-gray-600">
-                Experienced networks to find innovators and business thinkers.
-              </p>
-            </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Card 1 */}
+      <div className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+        <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/30 rounded-full"></div>
+        <img
+          src="/assets/service_card1.jpg"
+          alt="Overseas Recruitment"
+          className="w-full h-40 object-cover rounded-md mb-4"
+        />
+        <div className="flex justify-center mb-4">
+          <div className="bg-job-light p-3 rounded-full">
+            <Globe className="h-6 w-6 text-job-primary" />
           </div>
         </div>
+        <h3 className="text-xl font-bold mb-2">Overseas Recruitment</h3>
+        <p className="text-gray-600">
+          Fully-vetted, engaged candidates to save time and resources.
+        </p>
       </div>
+
+      {/* Card 2 */}
+      <div className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+        <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/30 rounded-full"></div>
+        <img
+          src="/assets/service_card2.jpg"
+          alt="Executive Search"
+          className="w-full h-40 object-cover rounded-md mb-4"
+        />
+        <div className="flex justify-center mb-4">
+          <div className="bg-job-light p-3 rounded-full">
+            <Users className="h-6 w-6 text-job-primary" />
+          </div>
+        </div>
+        <h3 className="text-xl font-bold mb-2">Executive Search</h3>
+        <p className="text-gray-600">
+          Human and data-driven sourcing for top-tier executives.
+        </p>
+      </div>
+
+      {/* Card 3 */}
+      <div className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+        <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/30 rounded-full"></div>
+        <img
+          src="/assets/service_card3.jpg"
+          alt="Temporary Staffing"
+          className="w-full h-40 object-cover rounded-md mb-4"
+        />
+        <div className="flex justify-center mb-4">
+          <div className="bg-job-light p-3 rounded-full">
+            <Briefcase className="h-6 w-6 text-job-primary" />
+          </div>
+        </div>
+        <h3 className="text-xl font-bold mb-2">Temporary Staffing</h3>
+        <p className="text-gray-600">
+          Experienced networks to find innovators and business thinkers.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Core Solutions Section */}
       <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16">
@@ -142,7 +226,13 @@ const Home: React.FC = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm relative overflow-hidden border border-gray-100">
+            {/* Card 1 */}
+            <div className="bg-white p-6 rounded-lg shadow-lg relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+              <img
+                src="/assets/card1.jpg"
+                alt="Recruitment Solutions"
+                className="w-full h-40 object-cover rounded-md mb-4"
+              />
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-job-light p-2 rounded-full">
                   <Search className="h-5 w-5 text-job-primary" />
@@ -154,7 +244,13 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm relative overflow-hidden border border-gray-100">
+            {/* Card 2 */}
+            <div className="bg-white p-6 rounded-lg shadow-lg relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+              <img
+                src="/assets/card2.jpg"
+                alt="Leadership Training"
+                className="w-full h-40 object-cover rounded-md mb-4"
+              />
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-job-light p-2 rounded-full">
                   <TrendingUp className="h-5 w-5 text-job-primary" />
@@ -166,7 +262,13 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm relative overflow-hidden border border-gray-100">
+            {/* Card 3 */}
+            <div className="bg-white p-6 rounded-lg shadow-lg relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+              <img
+                src="/assets/card3.jpg"
+                alt="Improving Resources"
+                className="w-full h-40 object-cover rounded-md mb-4"
+              />
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-job-light p-2 rounded-full">
                   <Users className="h-5 w-5 text-job-primary" />
@@ -181,25 +283,32 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Highlights section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            Our Highlights
-          </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {highlights.map((highlight, index) => (
-              <Card key={index} className="border border-gray-100 hover:border-job-primary transition-colors">
-                <CardContent className="p-6 text-center">
-                  <p className="text-3xl md:text-4xl font-bold text-job-primary mb-2">{highlight.count}</p>
-                  <p className="text-gray-600 text-sm">{highlight.title}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* Highlights section */}
+<div className="py-16 bg-white">
+  <div className="container mx-auto px-4">
+    <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+      Our Highlights
+    </h2>
+
+    <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      {highlights.map((highlight, index) => (
+        <Card
+          key={index}
+          className="border border-job-primary transition-colors"
+        >
+          <CardContent className="p-6 text-center">
+            {highlight.icon}
+            <p className="text-3xl md:text-4xl font-bold text-job-primary mb-1">
+              {highlight.count}
+            </p>
+            <p className="text-gray-600 text-sm">{highlight.title}</p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* Process workflow */}
       <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16">
@@ -307,12 +416,20 @@ const Home: React.FC = () => {
               <h3 className="text-xl font-bold mb-4">Client Testimonials</h3>
               <div className="space-y-4">
                 {testimonials.map((testimonial, index) => (
-                  <div key={index} className="border-l-4 border-job-primary pl-4">
-                    <p className="italic text-gray-600">"{testimonial.text}"</p>
-                    <p className="text-job-primary font-semibold mt-2">– {testimonial.author}</p>
+                  <div key={index} className="flex items-start gap-4">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      className="w-12 h-12 rounded-full object-cover border border-gray-200"
+                    />
+                    <div className="border-l-4 border-job-primary pl-4">
+                      <p className="italic text-gray-600">"{testimonial.text}"</p>
+                      <p className="text-job-primary font-semibold mt-2">– {testimonial.author}</p>
+                    </div>
                   </div>
                 ))}
               </div>
+
             </div>
           </div>
         </div>
@@ -326,7 +443,7 @@ const Home: React.FC = () => {
           </h2>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             {clientLogos.map((client, index) => (
-              <div key={index} className="w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+              <div key={index} className="p-3 w-40 h-32 flex items-center justify-center transition-all border border-gray-200 shadow-md">
                 <img 
                   src={client.logo} 
                   alt={client.name} 
@@ -337,7 +454,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-
       {/* CTA and contact section */}
       <div className="py-16 bg-gradient-to-br from-job-background via-white to-job-light relative">
         <div className="container mx-auto px-4">

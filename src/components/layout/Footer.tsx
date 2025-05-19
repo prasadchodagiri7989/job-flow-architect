@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-gray-200 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center">
-            <img src="/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" alt="NM-HR Logo" className="h-8 mr-2" />
+            <img src="/assets/mainlogo.png" alt="NM-HR Logo" className="h-8 mr-2" />
             <span className="text-sm text-gray-500">
               &copy; {new Date().getFullYear()} NM-HR Consultancy. All rights reserved.
             </span>

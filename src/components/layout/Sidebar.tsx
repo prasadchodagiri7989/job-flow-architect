@@ -96,7 +96,7 @@ const AppSidebar = () => {
       <SidebarHeader className="p-4">
         <div className="flex items-center gap-2">
           <img 
-            src="/lovable-uploads/95e0e390-48c8-48aa-8812-8c5715c01139.png" 
+            src="/assets/mainlogo.png" 
             alt="NM-HR Logo" 
             className="h-8" 
           />
