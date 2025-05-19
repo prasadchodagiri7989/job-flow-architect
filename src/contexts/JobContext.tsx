@@ -98,13 +98,13 @@ Responsibilities:
 - Maintain a clean and safe work environment
 
 Benefits:
-- Competitive hourly rate ($25-$35 based on experience)
+- Competitive hourly rate (AED 90-130 based on experience)
 - Opportunity for overtime
 - Tool allowance
 - Flexible schedule options`,
     shortDescription: "Join our team of skilled carpenters for residential and commercial woodworking projects.",
-    location: "Austin, TX",
-    salary: "$25 - $35 per hour",
+    location: "Abu Dhabi, UAE",
+    salary: "AED 90 - 130 per hour",
     tags: ["Construction", "Carpentry", "Full-time", "Skilled Trade"],
     createdAt: "2025-05-01T12:00:00Z",
     postedBy: "admin-1"
@@ -129,8 +129,8 @@ Requirements:
 - Detail-oriented with an eye for quality
 - Reliable transportation to job sites`,
     shortDescription: "Paint residential and commercial properties with our growing painting company.",
-    location: "San Antonio, TX",
-    salary: "$22 - $28 per hour",
+    location: "Dubai, UAE",
+    salary: "AED 80 - 100 per hour",
     tags: ["Painting", "Construction", "Full-time", "Part-time"],
     createdAt: "2025-05-02T10:30:00Z",
     postedBy: "admin-1"
@@ -157,8 +157,8 @@ Requirements:
 - Strong problem-solving skills
 - Clean driving record and reliable transportation`,
     shortDescription: "Apply your plumbing expertise to solve residential and commercial plumbing problems.",
-    location: "Houston, TX",
-    salary: "$30 - $45 per hour",
+    location: "Sharjah, UAE",
+    salary: "AED 110 - 160 per hour",
     tags: ["Plumbing", "Skilled Trade", "Full-time", "Licensed"],
     createdAt: "2025-05-03T08:45:00Z",
     postedBy: "admin-1"
@@ -185,8 +185,8 @@ Requirements:
 - Strong customer service skills
 - Valid driver's license and clean driving record`,
     shortDescription: "Keep homes and businesses comfortable by installing and servicing HVAC systems.",
-    location: "Dallas, TX",
-    salary: "$28 - $38 per hour",
+    location: "Abu Dhabi, UAE",
+    salary: "AED 100 - 140 per hour",
     tags: ["HVAC", "Skilled Trade", "Technician", "Full-time"],
     createdAt: "2025-05-04T14:20:00Z",
     postedBy: "admin-1"
@@ -213,8 +213,8 @@ Requirements:
 - Strong problem-solving skills
 - Valid driver's license and clean driving record`,
     shortDescription: "Apply your electrical expertise to residential and commercial projects with our growing company.",
-    location: "Fort Worth, TX",
-    salary: "$30 - $40 per hour",
+    location: "Dubai, UAE",
+    salary: "AED 110 - 145 per hour",
     tags: ["Electrical", "Skilled Trade", "Licensed", "Full-time"],
     createdAt: "2025-05-05T09:15:00Z",
     postedBy: "admin-1"
@@ -241,8 +241,8 @@ Requirements:
 - Valid driver's license
 - Herbicide/pesticide certification preferred but not required`,
     shortDescription: "Create and maintain beautiful outdoor spaces with our established landscaping company.",
-    location: "Austin, TX",
-    salary: "$18 - $25 per hour",
+    location: "Abu Dhabi, UAE",
+    salary: "AED 65 - 90 per hour",
     tags: ["Landscaping", "Outdoor", "Seasonal", "Full-time"],
     createdAt: "2025-05-06T11:30:00Z",
     postedBy: "admin-1"
@@ -269,8 +269,8 @@ Requirements:
 - Strong customer service skills
 - Valid driver's license and reliable transportation`,
     shortDescription: "Use your diverse maintenance skills to solve a variety of repair challenges.",
-    location: "San Antonio, TX",
-    salary: "$22 - $30 per hour",
+    location: "Sharjah, UAE",
+    salary: "AED 80 - 110 per hour",
     tags: ["Maintenance", "Handyman", "Repair", "Full-time"],
     createdAt: "2025-05-07T13:45:00Z",
     postedBy: "admin-1"
@@ -297,8 +297,8 @@ Requirements:
 - Attention to detail for proper alignment and finish
 - Reliable transportation to job sites`,
     shortDescription: "Install beautiful flooring solutions for residential and commercial spaces.",
-    location: "Houston, TX",
-    salary: "$24 - $32 per hour",
+    location: "Dubai, UAE",
+    salary: "AED 85 - 115 per hour",
     tags: ["Flooring", "Installation", "Construction", "Full-time"],
     createdAt: "2025-05-08T10:00:00Z",
     postedBy: "admin-1"
@@ -325,8 +325,8 @@ Requirements:
 - Basic carpentry skills for roof deck repair
 - Valid driver's license and reliable transportation`,
     shortDescription: "Join our team of roofing professionals installing and repairing quality roof systems.",
-    location: "Dallas, TX",
-    salary: "$25 - $35 per hour",
+    location: "Abu Dhabi, UAE",
+    salary: "AED 90 - 125 per hour",
     tags: ["Roofing", "Construction", "Skilled Trade", "Full-time"],
     createdAt: "2025-05-09T08:30:00Z",
     postedBy: "admin-1"
@@ -353,8 +353,8 @@ Requirements:
 - Strong customer service skills
 - Valid driver's license and clean driving record`,
     shortDescription: "Fix household appliances and provide excellent service to residential customers.",
-    location: "Fort Worth, TX",
-    salary: "$24 - $32 per hour",
+    location: "Dubai, UAE",
+    salary: "AED 85 - 115 per hour",
     tags: ["Appliance Repair", "Technician", "Service", "Full-time"],
     createdAt: "2025-05-10T12:15:00Z",
     postedBy: "admin-1"
@@ -381,8 +381,8 @@ Requirements:
 - Reliable transportation to job sites
 - Willingness to work outdoors in various weather conditions`,
     shortDescription: "Join our construction team helping build and renovate residential and commercial properties.",
-    location: "Austin, TX",
-    salary: "$16 - $20 per hour",
+    location: "Sharjah, UAE",
+    salary: "AED 60 - 75 per hour",
     tags: ["Construction", "Labor", "Entry-Level", "Full-time"],
     createdAt: "2025-05-11T09:45:00Z",
     postedBy: "admin-1"
@@ -409,8 +409,8 @@ Requirements:
 - Physical stamina for kneeling, bending, and lifting
 - Reliable transportation to job sites`,
     shortDescription: "Create beautiful tile installations in kitchens, bathrooms, and other spaces.",
-    location: "San Antonio, TX",
-    salary: "$25 - $35 per hour",
+    location: "Dubai, UAE",
+    salary: "AED 90 - 125 per hour",
     tags: ["Tile", "Installation", "Construction", "Skilled Trade"],
     createdAt: "2025-05-12T14:00:00Z",
     postedBy: "admin-1"
