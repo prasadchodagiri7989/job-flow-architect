@@ -153,8 +153,8 @@ const JobFilters: React.FC<JobFiltersProps> = ({ onFilterChange }) => {
                 <div>
                   <Label className="mb-2 block">Salary Range (USD)</Label>
                   <div className="flex justify-between mb-2 text-sm text-gray-500">
-                    <span>${filters.salaryRange[0].toLocaleString()}</span>
-                    <span>${filters.salaryRange[1].toLocaleString()}</span>
+                    <span>AED{filters.salaryRange[0].toLocaleString()}</span>
+                    <span>AED{filters.salaryRange[1].toLocaleString()}</span>
                   </div>
                   <Slider
                     defaultValue={[filters.salaryRange[0], filters.salaryRange[1]]}
