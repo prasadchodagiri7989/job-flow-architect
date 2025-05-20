@@ -1,9 +1,15 @@
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { toast } from "sonner";
 import { Briefcase } from "lucide-react";
 
@@ -12,22 +18,33 @@ const Register: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     try {
-      // In a real app, this would be an API call
-      // For the demo, we'll just redirect to login
-      setTimeout(() => {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/auth/register`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast.error(data.message || "Registration failed");
+      } else {
         toast.success("Account created! Please login.");
         navigate("/login");
-      }, 1000);
+      }
     } catch (error) {
-      toast.error("Registration failed. Please try again.");
+      toast.error("Something went wrong. Please try again.");
       console.error("Registration error:", error);
     } finally {
       setIsLoading(false);
@@ -42,7 +59,7 @@ const Register: React.FC = () => {
             <Briefcase className="h-10 w-10 text-job-primary" />
           </div>
         </div>
-        
+
         <Card className="border-0 shadow-lg">
           <CardHeader className="space-y-1 text-center">
             <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
@@ -53,7 +70,9 @@ const Register: React.FC = () => {
           <CardContent className="space-y-4">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium">Full Name</label>
+                <label htmlFor="name" className="text-sm font-medium">
+                  Full Name
+                </label>
                 <Input
                   id="name"
                   placeholder="John Doe"
@@ -62,9 +81,11 @@ const Register: React.FC = () => {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">Email</label>
+                <label htmlFor="email" className="text-sm font-medium">
+                  Email
+                </label>
                 <Input
                   id="email"
                   type="email"
@@ -74,9 +95,11 @@ const Register: React.FC = () => {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
-                <label htmlFor="password" className="text-sm font-medium">Password</label>
+                <label htmlFor="password" className="text-sm font-medium">
+                  Password
+                </label>
                 <Input
                   id="password"
                   type="password"
@@ -86,15 +109,15 @@ const Register: React.FC = () => {
                   required
                 />
               </div>
-              
-              <Button 
-                type="submit" 
-                className="w-full bg-job-primary hover:bg-job-secondary" 
+
+              <Button
+                type="submit"
+                className="w-full bg-job-primary hover:bg-job-secondary"
                 disabled={isLoading}
               >
                 {isLoading ? "Creating account..." : "Sign up"}
               </Button>
-              
+
               <div className="text-center text-sm text-gray-500 mt-4">
                 <p>For demo purposes, please use the provided demo accounts.</p>
                 <p>Admin: admin@demo.com / admin123</p>

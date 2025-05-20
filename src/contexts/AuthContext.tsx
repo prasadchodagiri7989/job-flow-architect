@@ -1,7 +1,7 @@
+import React, { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
-import React, { createContext, useState, useContext, useEffect } from "react";
 
-// Define user types
 export type UserRole = "admin" | "user";
 
 export interface User {
@@ -21,59 +21,43 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Predefined users for demo
-const demoUsers: User[] = [
-  {
-    id: "admin-1",
-    email: "admin@demo.com",
-    name: "Admin User",
-    role: "admin",
-  },
-  {
-    id: "user-1",
-    email: "user@demo.com",
-    name: "Demo User",
-    role: "user",
-  },
-];
-
-// Password map for demo
-const demoPasswords: Record<string, string> = {
-  "admin@demo.com": "admin123",
-  "user@demo.com": "user123",
-};
-
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
-  // Check for stored user on mount
   useEffect(() => {
-    const storedUser = localStorage.getItem("jobSearchUser");
+    const storedUser = localStorage.getItem("nmhr-user");
     if (storedUser) {
       setCurrentUser(JSON.parse(storedUser));
     }
   }, []);
 
-  // Login function
-  const login = async (email: string, password: string): Promise<boolean> => {
-    // In a real app, this would be an API call
-    const user = demoUsers.find((u) => u.email === email);
-    const correctPassword = demoPasswords[email];
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
-    if (user && correctPassword === password) {
+  const login = async (email: string, password: string): Promise<boolean> => {
+    try {
+      const res = await axios.post(`${apiBaseUrl}/auth/login`, {
+        email,
+        password,
+      });
+
+      const { token, user } = res.data;
+
+      localStorage.setItem("nmhr-user", JSON.stringify(user));
+      localStorage.setItem("nmhr-token", token);
       setCurrentUser(user);
-      localStorage.setItem("jobSearchUser", JSON.stringify(user));
+
       return true;
+    } catch (error) {
+      console.error("Login failed:", error);
+      return false;
     }
-    return false;
   };
 
-  // Logout function
+
   const logout = () => {
+    localStorage.removeItem("nmhr-user");
+    localStorage.removeItem("nmhr-token");
     setCurrentUser(null);
-    localStorage.removeItem("jobSearchUser");
   };
 
   const value = {
@@ -89,7 +73,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
 export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
