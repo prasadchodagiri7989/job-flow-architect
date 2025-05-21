@@ -18,6 +18,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Briefcase, MapPin, Calendar, ArrowLeft, Upload } from "lucide-react";
+import axios from "axios";
+
+const API = import.meta.env.VITE_API_BASE_URL;
+
 
 const JobDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -59,43 +63,83 @@ const JobDetail: React.FC = () => {
     setIsApplyDialogOpen(true);
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setFileName(file.name);
-      // In a real app, we would upload the file and get a URL
-      // For demo, we'll just pretend we have a URL
-      setApplicationData({ ...applicationData, resumeUrl: "sample-resume.pdf" });
-    }
-  };
+const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append("resume", file);
+
+  try {
+    const res = await axios.post(`${API}/upload/resume`, formData);
+
+    const resumeId = res.data.resumeId;
+
+    // ✅ Update state with resume URL and display name
+    setApplicationData(prev => ({
+      ...prev,
+      resumeUrl: `/uploads/${resumeId}`,
+    }));
+
+    setFileName(file.name); // ✅ Show file name in UI
+
+    toast.success("Resume uploaded successfully!");
+  } catch (err) {
+    console.error("❌ Upload error:", err);
+    toast.error("File upload failed. Please try again.");
+  }
+};
+
+
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setApplicationData({ ...applicationData, [name]: value });
   };
 
-  const handleSubmitApplication = () => {
-    if (!currentUser) return;
-    
-    setIsSubmitting(true);
-    
-    try {
-      applyForJob(job.id, {
-        ...applicationData,
-        userId: currentUser.id,
-      });
-      
+const handleSubmitApplication = async () => {
+  if (!job?.id || !currentUser?.id) {
+    toast.error("Missing job or user information.");
+    return;
+  }
+
+  // Basic validation (optional)
+  if (!applicationData.name || !applicationData.email || !applicationData.resumeUrl) {
+    toast.error("Please fill in all required fields.");
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    const payload = {
+      jobId: job.id,
+      userId: currentUser.id,
+      name: applicationData.name.trim(),
+      email: applicationData.email.trim(),
+      resumeUrl: applicationData.resumeUrl,
+      coverLetter: applicationData.coverLetter?.trim() || '',
+    };
+
+    const res = await axios.post(`${API}/applications`, payload);
+
+    if (res.status === 201) {
       toast.success("Application submitted successfully!");
       setIsApplyDialogOpen(false);
-      // Redirect to applications page
-      navigate("/applications");
-    } catch (error) {
-      toast.error("Failed to submit application. Please try again.");
-      console.error("Application error:", error);
-    } finally {
-      setIsSubmitting(false);
+    } else {
+      toast.error("Unexpected response from server.");
     }
-  };
+  } catch (error: any) {
+    console.error("❌ Error submitting application:", error);
+    const message = error.response?.data?.message || "Failed to submit application.";
+    toast.error(message);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+
 
   // Format the date
   const postedDate = new Date(job.createdAt).toLocaleDateString("en-US", {
