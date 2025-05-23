@@ -31,8 +31,12 @@ import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { ArrowLeft, FileText, Eye } from "lucide-react";
+import axios from "axios";
+
+
 
 const JobApplicants: React.FC = () => {
+  const API = import.meta.env.VITE_API_BASE_URL;
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { getJobById, getApplicationsForJob, updateApplication } = useJobs();
@@ -42,39 +46,56 @@ const JobApplicants: React.FC = () => {
   const [viewingApplication, setViewingApplication] = useState<Application | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  useEffect(() => {
-    if (id) {
-      const jobData = getJobById(id);
-      if (jobData) {
-        setJob(jobData);
-        const jobApplications = getApplicationsForJob(id);
-        setApplications(jobApplications);
-      } else {
-        toast.error("Job not found");
-        navigate("/admin/jobs");
-      }
+  console.log(viewingApplication);
+
+useEffect(() => {
+  const fetchData = async () => {
+    if (!id) return;
+
+    const jobData = getJobById(id);
+    if (!jobData) {
+      toast.error("Job not found");
+      navigate("/admin/jobs");
+      return;
     }
-  }, [id, getJobById, getApplicationsForJob, navigate]);
+
+    setJob(jobData);
+
+    try {
+      const res = await axios.get(`${API}/applications/job/${id}`);
+      const normalizedApps = res.data.map((app: any) => ({
+        ...app,
+        id: app._id,
+      }));
+
+      setApplications(normalizedApps);
+    } catch (err) {
+      console.error("Failed to fetch applications", err);
+      toast.error("Failed to load applications.");
+    }
+  };
+
+  fetchData();
+}, [id, getJobById, navigate]);
+
 
   const handleViewApplication = (app: Application) => {
     setViewingApplication(app);
     setDialogOpen(true);
   };
 
-  const handleStatusChange = (status: "pending" | "reviewed" | "rejected" | "accepted") => {
-    if (!viewingApplication) return;
+const handleStatusChange = (status: "pending" | "reviewed" | "rejected" | "accepted") => {
+  if (!viewingApplication) return;
 
-    const updatedApplication = { ...viewingApplication, status };
-    updateApplication(updatedApplication);
-    
-    // Update local state
-    setApplications(applications.map(app => 
-      app.id === updatedApplication.id ? updatedApplication : app
-    ));
-    setViewingApplication(updatedApplication);
-    
-    toast.success("Application status updated");
-  };
+  const updatedApplication = { ...viewingApplication, status };
+  console.log(updatedApplication);
+  updateApplication(updatedApplication);
+
+  setViewingApplication(updatedApplication);
+
+  toast.success("Application status updated");
+};
+
 
   const getStatusBadge = (status: string) => {
     switch (status) {

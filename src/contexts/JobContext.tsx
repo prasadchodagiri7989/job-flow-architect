@@ -86,46 +86,44 @@ export const JobProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const API = import.meta.env.VITE_API_BASE_URL;
 
-  // Load data from backend
-  useEffect(() => {
-    if (!currentUser) return;
+useEffect(() => {
+  if (!currentUser) return;
 
-    const loadData = async () => {
-  try {
-    const [jobRes, appRes, profileRes] = await Promise.all([
-      axios.get(`${API}/jobs`),
-      axios.get(`${API}/applications/user/${currentUser.id}`),
-      axios.get(`${API}/users/${currentUser.id}`)
-    ]);
+  const loadData = async () => {
+    try {
+      const [jobRes, appRes, profileRes] = await Promise.all([
+        axios.get(`${API}/jobs`),
+        currentUser.role === 'admin'
+          ? axios.get(`${API}/applications`)
+          : axios.get(`${API}/applications/user/${currentUser.id}`),
+        axios.get(`${API}/users/${currentUser.id}`)
+      ]);
 
-    // Normalize jobs
-    const normalizedJobs = jobRes.data.map((job: any) => ({
-      ...job,
-      id: job._id,
-    }));
+      const normalizedJobs = jobRes.data.map((job: any) => ({
+        ...job,
+        id: job._id,
+      }));
 
-    // Normalize applications
-    const normalizedApps = appRes.data.map((app: any) => ({
-      ...app,
-      id: app._id,
-    }));
+      const normalizedApps = appRes.data.map((app: any) => ({
+        ...app,
+        id: app._id,
+      }));
 
-    // Normalize user profile
-    const normalizedProfile = {
-      ...profileRes.data,
-      id: profileRes.data._id,
-    };
+      const normalizedProfile = {
+        ...profileRes.data,
+        id: profileRes.data._id,
+      };
 
-    setJobs(normalizedJobs);
-    setApplications(normalizedApps);
-    setUserProfile(normalizedProfile);
-  } catch (error) {
-    console.error("Error loading job context:", error);
-  }
-};
+      setJobs(normalizedJobs);
+      setApplications(normalizedApps);
+      setUserProfile(normalizedProfile);
+    } catch (error) {
+      console.error("Error loading job context:", error);
+    }
+  };
 
-    loadData();
-  }, [currentUser]);
+  loadData();
+}, [currentUser]);
 
   // CRUD Actions
   const addJob = async (job: Omit<Job, "id" | "createdAt" | "postedBy">) => {

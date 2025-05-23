@@ -73,12 +73,12 @@ const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
   try {
     const res = await axios.post(`${API}/upload/resume`, formData);
 
-    const resumeId = res.data.resumeId;
+    const resumeId = res.data.viewLink;
 
     // ✅ Update state with resume URL and display name
     setApplicationData(prev => ({
       ...prev,
-      resumeUrl: `/uploads/${resumeId}`,
+      resumeUrl: `${resumeId}`,
     }));
 
     setFileName(file.name); // ✅ Show file name in UI
