@@ -17,6 +17,7 @@ import UserProfile from "./pages/UserProfile";
 import UserApplications from "./pages/UserApplications";
 import ResumeBuilder from "./pages/ResumeBuilder";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminProfile from "./pages/admin/AdminProfile";
 import AdminJobs from "./pages/admin/AdminJobs";
 import CreateJob from "./pages/admin/CreateJob";
 import JobApplicants from "./pages/admin/JobApplicants";
@@ -100,6 +101,14 @@ const App = () => (
                 element={
                   <ProtectedRoute adminOnly={true}>
                     <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/profile"
+                element={
+                  <ProtectedRoute adminOnly={true}>
+                    <AdminProfile />
                   </ProtectedRoute>
                 }
               />

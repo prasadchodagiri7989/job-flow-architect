@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Layout from "../../components/layout/Layout";
 import { useJobs, Application } from "../../contexts/JobContext";
@@ -33,43 +32,23 @@ import { Badge } from "@/components/ui/badge";
 
 const AdminApplications: React.FC = () => {
   const { jobs, applications, getJobById, updateApplication } = useJobs();
-
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [viewingApplication, setViewingApplication] = useState<Application | null>(null);
 
-  // Apply filters
-  let filteredApplications = [...applications];
-
-  if (searchTerm) {
-    filteredApplications = filteredApplications.filter(
-      (app) =>
+  const filteredApplications = applications.filter((app) => {
+    return (
+      (!searchTerm ||
         app.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        app.email.toLowerCase().includes(searchTerm.toLowerCase())
+        app.email.toLowerCase().includes(searchTerm.toLowerCase())) &&
+      (!selectedJob || app.jobId === selectedJob) &&
+      (!selectedStatus || app.status === selectedStatus)
     );
-  }
+  });
 
-  if (selectedJob) {
-    filteredApplications = filteredApplications.filter(
-      (app) => app.jobId === selectedJob
-    );
-  }
-
-  if (selectedStatus) {
-    filteredApplications = filteredApplications.filter(
-      (app) => app.status === selectedStatus
-    );
-  }
-
-  const handleViewApplication = (app: Application) => {
-    setViewingApplication(app);
-  };
-
-  // Update the function to accept only the specific status values defined in the Application type
   const handleStatusChange = (status: "pending" | "reviewed" | "rejected" | "accepted") => {
     if (!viewingApplication) return;
-
     const updatedApplication = { ...viewingApplication, status };
     updateApplication(updatedApplication);
     setViewingApplication(updatedApplication);
@@ -77,8 +56,7 @@ const AdminApplications: React.FC = () => {
   };
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
+    return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
@@ -165,19 +143,15 @@ const AdminApplications: React.FC = () => {
                         <TableCell>
                           <div>
                             <div className="font-medium">{application.name}</div>
-                            <div className="text-sm text-gray-500">
-                              {application.email}
-                            </div>
+                            <div className="text-sm text-gray-500">{application.email}</div>
                           </div>
                         </TableCell>
                         <TableCell>{job?.title || "Unknown Job"}</TableCell>
+                        <TableCell>{formatDate(application.appliedAt)}</TableCell>
                         <TableCell>
-                          {formatDate(application.appliedAt)}
-                        </TableCell>
-                        <TableCell>
-                          <Badge 
+                          <Badge
                             variant="outline"
-                            // @ts-ignore - We know these status values match
+                            // @ts-ignore
                             className={statusBadgeStyles[application.status]}
                           >
                             {application.status.charAt(0).toUpperCase() + application.status.slice(1)}
@@ -187,7 +161,7 @@ const AdminApplications: React.FC = () => {
                           <Button
                             variant="ghost"
                             size="sm"
-                            onClick={() => handleViewApplication(application)}
+                            onClick={() => setViewingApplication(application)}
                             className="gap-1"
                           >
                             <Eye className="h-4 w-4" />
@@ -211,8 +185,10 @@ const AdminApplications: React.FC = () => {
           )}
         </div>
 
-        {/* Application View Dialog */}
-        <Dialog open={!!viewingApplication} onOpenChange={(open) => !open && setViewingApplication(null)}>
+        <Dialog
+          open={!!viewingApplication}
+          onOpenChange={(open) => !open && setViewingApplication(null)}
+        >
           <DialogContent className="sm:max-w-[600px]">
             {viewingApplication && (
               <>
@@ -237,24 +213,25 @@ const AdminApplications: React.FC = () => {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm font-medium text-gray-500">
-                        Applied On
-                      </p>
+                      <p className="text-sm font-medium text-gray-500">Applied On</p>
                       <p>{formatDate(viewingApplication.appliedAt)}</p>
                     </div>
                     <div>
                       <p className="text-sm font-medium text-gray-500">Resume</p>
-                      <Button variant="link" className="p-0 h-auto">
+                      <a
+                        href={viewingApplication.resumeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 underline text-sm"
+                      >
                         Download Resume
-                      </Button>
+                      </a>
                     </div>
                   </div>
 
                   {viewingApplication.coverLetter && (
                     <div>
-                      <p className="text-sm font-medium text-gray-500 mb-2">
-                        Cover Letter
-                      </p>
+                      <p className="text-sm font-medium text-gray-500 mb-2">Cover Letter</p>
                       <div className="bg-gray-50 p-3 rounded-md text-sm">
                         {viewingApplication.coverLetter}
                       </div>
@@ -262,9 +239,7 @@ const AdminApplications: React.FC = () => {
                   )}
 
                   <div className="pt-2">
-                    <p className="text-sm font-medium text-gray-500 mb-2">
-                      Update Status
-                    </p>
+                    <p className="text-sm font-medium text-gray-500 mb-2">Update Status</p>
                     <div className="flex gap-2">
                       <Button
                         variant={viewingApplication.status === "pending" ? "secondary" : "outline"}
@@ -301,10 +276,7 @@ const AdminApplications: React.FC = () => {
                 </div>
 
                 <DialogFooter>
-                  <Button
-                    variant="outline"
-                    onClick={() => setViewingApplication(null)}
-                  >
+                  <Button variant="outline" onClick={() => setViewingApplication(null)}>
                     Close
                   </Button>
                 </DialogFooter>
