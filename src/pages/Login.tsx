@@ -47,6 +47,7 @@ const Login: React.FC = () => {
         </div>
         
         <Card className="border-0 shadow-lg">
+
           <CardHeader className="space-y-1 text-center">
             <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
             <CardDescription>
@@ -108,7 +109,15 @@ const Login: React.FC = () => {
               </Link>
             </p>
           </CardFooter>
+          
         </Card>
+        <div className="mt-4 text-center">
+          <Link to="/">
+            <Button variant="outline" className="text-job-primary">
+              Go to Home
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

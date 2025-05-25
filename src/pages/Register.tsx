@@ -134,6 +134,13 @@ const Register: React.FC = () => {
             </p>
           </CardFooter>
         </Card>
+        <div className="mt-4 text-center">
+                  <Link to="/">
+                    <Button variant="outline" className="text-job-primary">
+                      Go to Home
+                    </Button>
+                  </Link>
+                </div>
       </div>
     </div>
   );
