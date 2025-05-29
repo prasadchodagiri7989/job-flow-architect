@@ -93,12 +93,6 @@ const Login: React.FC = () => {
               >
                 {isLoading ? "Logging in..." : "Log in"}
               </Button>
-              
-              <div className="text-center text-sm text-gray-500 mt-4">
-                <p>Demo Credentials:</p>
-                <p>Admin: admin@demo.com / admin123</p>
-                <p>User: user@demo.com / user123</p>
-              </div>
             </form>
           </CardContent>
           <CardFooter className="text-center text-sm">

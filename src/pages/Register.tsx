@@ -117,12 +117,6 @@ const Register: React.FC = () => {
               >
                 {isLoading ? "Creating account..." : "Sign up"}
               </Button>
-
-              <div className="text-center text-sm text-gray-500 mt-4">
-                <p>For demo purposes, please use the provided demo accounts.</p>
-                <p>Admin: admin@demo.com / admin123</p>
-                <p>User: user@demo.com / user123</p>
-              </div>
             </form>
           </CardContent>
           <CardFooter className="text-center text-sm">
