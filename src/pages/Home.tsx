@@ -163,16 +163,16 @@ const testimonials = [
         <img
           src="/assets/service_card1.jpg"
           alt="Overseas Recruitment"
-          className="w-full h-40 object-cover rounded-md mb-4"
+          className="w-full h-50 object-cover rounded-md mb-4"
         />
         <div className="flex justify-center mb-4">
           <div className="bg-job-light p-3 rounded-full">
             <Globe className="h-6 w-6 text-job-primary" />
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2">Overseas Recruitment</h3>
+        <h3 className="text-xl font-bold mb-2">Staffing Solutions</h3>
         <p className="text-gray-600">
-          Fully-vetted, engaged candidates to save time and resources.
+          Whether you need staff on a temporary, permanent, or contract basis, we tailor our services to suit your business needs.
         </p>
       </div>
 
@@ -182,16 +182,16 @@ const testimonials = [
         <img
           src="/assets/service_card2.jpg"
           alt="Executive Search"
-          className="w-full h-40 object-cover rounded-md mb-4"
+          className="w-full h-50 object-cover rounded-md mb-4"
         />
         <div className="flex justify-center mb-4">
           <div className="bg-job-light p-3 rounded-full">
             <Users className="h-6 w-6 text-job-primary" />
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2">Executive Search</h3>
+        <h3 className="text-xl font-bold mb-2">Overseas Recruitment</h3>
         <p className="text-gray-600">
-          Human and data-driven sourcing for top-tier executives.
+          We source qualified candidates from abroad through a smooth, legal, and professional process. We handle everything—from screening to visa coordination.
         </p>
       </div>
 
@@ -201,16 +201,35 @@ const testimonials = [
         <img
           src="/assets/service_card3.jpg"
           alt="Temporary Staffing"
-          className="w-full h-40 object-cover rounded-md mb-4"
+          className="w-full h-50 object-cover rounded-md mb-4"
         />
         <div className="flex justify-center mb-4">
           <div className="bg-job-light p-3 rounded-full">
             <Briefcase className="h-6 w-6 text-job-primary" />
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2">Temporary Staffing</h3>
+        <h3 className="text-xl font-bold mb-2">Document & Visa Processing</h3>
         <p className="text-gray-600">
-          Experienced networks to find innovators and business thinkers.
+          We assist with documentation, offer letters, visa applications, and onboarding procedures, saving your time and effort.
+        </p>
+      </div>
+
+      {/* Card 4 */}
+      <div className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+        <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-job-light/30 rounded-full"></div>
+        <img
+          src="/assets/slideshow4.jpg"
+          alt="Temporary Staffing"
+          className="w-full h-50 object-cover rounded-md mb-4"
+        />
+        <div className="flex justify-center mb-4">
+          <div className="bg-job-light p-3 rounded-full">
+            <Briefcase className="h-6 w-6 text-job-primary" />
+          </div>
+        </div>
+        <h3 className="text-xl font-bold mb-2">Client Support</h3>
+        <p className="text-gray-600">
+          We maintain strong, ongoing relationships with our clients and ensure quick response, clear communication, and reliable follow-up.
         </p>
       </div>
     </div>
@@ -231,7 +250,7 @@ const testimonials = [
               <img
                 src="/assets/card1.jpg"
                 alt="Recruitment Solutions"
-                className="w-full h-40 object-cover rounded-md mb-4"
+                className="w-full h-50 object-cover rounded-md mb-4"
               />
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-job-light p-2 rounded-full">
@@ -249,7 +268,7 @@ const testimonials = [
               <img
                 src="/assets/card2.jpg"
                 alt="Leadership Training"
-                className="w-full h-40 object-cover rounded-md mb-4"
+                className="w-full h-50 object-cover rounded-md mb-4"
               />
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-job-light p-2 rounded-full">
@@ -267,7 +286,7 @@ const testimonials = [
               <img
                 src="/assets/card3.jpg"
                 alt="Improving Resources"
-                className="w-full h-40 object-cover rounded-md mb-4"
+                className="w-full h-50 object-cover rounded-md mb-4"
               />
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-job-light p-2 rounded-full">

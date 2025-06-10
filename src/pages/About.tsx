@@ -1,8 +1,7 @@
-
 import React from "react";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building, Award, Users, CheckCircle } from "lucide-react";
+import { Building, Award, Users, CheckCircle, Briefcase } from "lucide-react";
 
 const About: React.FC = () => {
   return (
@@ -50,6 +49,31 @@ const About: React.FC = () => {
                   <p className="text-gray-700 leading-relaxed mt-4">
                     Our executive search services are tailored for defined and senior-level roles. We build deep client relationships, understand corporate culture, and ensure the selection of the most suitable talent.
                   </p>
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Our Services Section */}
+            <section className="fade-in">
+              <div className="flex items-center gap-3 mb-4">
+                <Briefcase className="h-7 w-7 text-job-primary" />
+                <h2 className="text-2xl font-bold text-gray-800">🌟 Our Services at NM HR Consultancy</h2>
+              </div>
+              <Card>
+                <CardContent className="p-6">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    At NM HR Consultancy, we offer reliable and efficient recruitment services across the UAE—including Dubai, Abu Dhabi, and Al Ain. We help businesses find the right people, and help job seekers find the right opportunities.
+                  </p>
+                  <p className="text-gray-700 font-semibold mb-2">✅ Manpower Recruitment</p>
+                  <p className="text-gray-700 mb-2">We provide skilled, semi-skilled, and unskilled workers for various industries such as:</p>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                    <li>Hospitality</li>
+                    <li>Cleaning & Maintenance</li>
+                    <li>Construction</li>
+                    <li>Retail</li>
+                    <li>Facility Management</li>
+                    <li>Security and more</li>
+                  </ul>
                 </CardContent>
               </Card>
             </section>

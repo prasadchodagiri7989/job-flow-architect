@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -17,30 +17,16 @@ const navbarElements = {
       { label: "Vacancies", path: "/vacancies" },
       { label: "Tips for Jobseekers", path: "/tips-jobseekers" },
       { label: "Register CV", path: "/register-cv" },
-      { label: "FAQs", path: "/faqs" },
-      { label: "Emiratization", path: "/emiratization" },
-    ],
-  },
-  employers: {
-    label: "Employers",
-    subItems: [
-      { label: "Services", path: "/employers/services" },
-      { label: "Specialisation", path: "/employers/specialisation" },
-      { label: "CountryPedia", path: "/employers/countrypedia" },
-      { label: "Emiratisation", path: "/employers/emiratisation" },
     ],
   },
   aboutUs: {
     label: "About Us",
     subItems: [
+      { label: "Services", path: "/employers/services" },
       { label: "Team", path: "/about/team" },
       { label: "Success", path: "/about/success" },
       { label: "Our Locations", path: "/about/locations" },
-      { label: "Careers at TASC", path: "/about/careers" },
-      { label: "Regional Expertise", path: "/about/regional-expertise" },
-      { label: "Brands", path: "/about/brands" },
-      { label: "Case Studies", path: "/about/case-studies" },
-      { label: "CSR", path: "/about/csr" },
+      { label: "Careers at NMHR", path: "/about/careers" },
     ],
   },
   insights: {
@@ -48,7 +34,6 @@ const navbarElements = {
     subItems: [
       { label: "Blog", path: "/insights/blog" },
       { label: "Reports", path: "/insights/reports" },
-      { label: "News Section", path: "/insights/news" },
     ],
   },
   // Flat menu items
@@ -64,6 +49,20 @@ const Navbar: React.FC = () => {
   const { currentUser, logout, isAuthenticated, isAdmin } = useAuth();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const timeoutRef = useRef(null);
+
+  const showDropdown = (key) => {
+    clearTimeout(timeoutRef.current);
+    setActiveDropdown(key);
+  };
+
+  const hideDropdown = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300); // Adjust the delay here (in ms)
+  };
+
 
   const handleLogout = () => {
     logout();
@@ -89,25 +88,33 @@ const Navbar: React.FC = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 items-center">
           {Object.entries(navbarElements).map(([key, item]) =>
-            "subItems" in item ? (
-              <div key={key} className="relative group">
-                <button className="text-gray-700 hover:text-job-primary">
-                  {item.label}
-                </button>
-                <div className="absolute left-0 mt-2 w-56 bg-white border rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity z-50">
-                  {item.subItems.map((sub) => (
-                    <Link
-                      key={sub.path}
-                      to={sub.path}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
-                </div>
+        "subItems" in item ? (
+          <div
+            key={key}
+            className="relative"
+            onMouseEnter={() => showDropdown(key)}
+            onMouseLeave={hideDropdown}
+          >
+            <button className="text-gray-700 hover:text-job-primary">
+              {item.label}
+            </button>
+
+            {activeDropdown === key && (
+              <div className="absolute left-0 mt-2 w-56 bg-white border rounded shadow-lg z-50">
+                {item.subItems.map((sub) => (
+                  <Link
+                    key={sub.path}
+                    to={sub.path}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    {sub.label}
+                  </Link>
+                ))}
               </div>
-            ) : null
-          )}
+            )}
+          </div>
+        ) : null
+      )}
 
 
 
@@ -141,9 +148,7 @@ const Navbar: React.FC = () => {
               )}
             </>
           )}
-        </div>
-
-                  <Link to="/request-proposal">
+                    <Link to="/request-proposal">
             <Button className="bg-transparent hover:bg-blue-600 text-black hover:text-white border">
               Request Proposal
             </Button>
@@ -154,6 +159,9 @@ const Navbar: React.FC = () => {
               Register CV
             </Button>
           </Link>
+        </div>
+
+
 
         {/* Auth Buttons */}
         <div className="flex gap-3 items-center">
