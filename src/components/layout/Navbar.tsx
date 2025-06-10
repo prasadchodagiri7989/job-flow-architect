@@ -108,17 +108,7 @@ const Navbar: React.FC = () => {
               </div>
             ) : null
           )}
-          <Link to="/request-proposal">
-            <Button className="bg-transparent hover:bg-blue-600 text-black hover:text-white border">
-              Request Proposal
-            </Button>
-          </Link>
 
-          <Link to="/register-cv">
-            <Button className="bg-transparent hover:bg-green-600 text-black hover:text-white border">
-              Register CV
-            </Button>
-          </Link>
 
 
           {isAuthenticated && (
@@ -152,6 +142,18 @@ const Navbar: React.FC = () => {
             </>
           )}
         </div>
+
+                  <Link to="/request-proposal">
+            <Button className="bg-transparent hover:bg-blue-600 text-black hover:text-white border">
+              Request Proposal
+            </Button>
+          </Link>
+
+          <Link to="/register-cv">
+            <Button className="bg-transparent hover:bg-green-600 text-black hover:text-white border">
+              Register CV
+            </Button>
+          </Link>
 
         {/* Auth Buttons */}
         <div className="flex gap-3 items-center">
