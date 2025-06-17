@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useJobs } from "../contexts/JobContext";
+import { useAuth } from "../contexts/AuthContext";
 import JobCard from "../components/jobs/JobCard";
+import { useContext } from "react";
 import { 
   Briefcase, 
   Search, 
@@ -25,6 +27,9 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Home: React.FC = () => {
   const { jobs } = useJobs();
+  const { isAuthenticated } = useAuth();
+
+
 
   const latestJobs = jobs.slice(0, 3);
 
@@ -87,7 +92,7 @@ const testimonials = [
   return (
     <Layout>
       {/* Hero section */}
-<div className="relative">
+<div className="relative h-[600px] md:h-[700px]">
   {/* Background image */}
   <div
     className="absolute inset-0 z-0"
@@ -110,10 +115,10 @@ const testimonials = [
 
   {/* Foreground content with light transparent base */}
   <div className="relative z-10 bg-white/10">
-    <div className="container mx-auto px-4 py-16 md:py-24">
+    <div className="container mx-auto px-4 py-16 md:py-24 h-[600px] md:h-[700px]">
       <div className="max-w-2xl relative">
         <div
-          className="hidden md:block absolute -right-20 -top-14 w-40 h-40 opacity-10"
+          className="hidden md:block absolute -right-20 -top-14 w-40 h-60 opacity-10"
           style={{
             backgroundImage:
               'radial-gradient(circle, rgba(79, 70, 229, 0.3) 1px, transparent 1px)',
@@ -131,16 +136,30 @@ const testimonials = [
           To be the most reliable and trustworthy global recruitment partner to both our clients and candidates.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link to="/jobs" className="flex-1 sm:flex-none">
-            <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
-              Browse Jobs
-            </Button>
-          </Link>
-          <Link to="/login" className="flex-1 sm:flex-none">
-            <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 border-white text-white bg-transparent">
-              Sign In
-            </Button>
-          </Link>
+          {isAuthenticated ? (
+  <Link to="/jobs" className="flex-1 sm:flex-none">
+    <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
+      Browse Jobs
+    </Button>
+  </Link>
+) : (
+  <>
+    <Link to="/jobs" className="flex-1 sm:flex-none">
+      <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
+        Browse Jobs
+      </Button>
+    </Link>
+    <Link to="/login" className="flex-1 sm:flex-none">
+      <Button
+        variant="outline"
+        className="w-full sm:w-auto text-lg px-8 py-6 border-white text-white bg-transparent"
+      >
+        Sign In
+      </Button>
+    </Link>
+  </>
+)}
+
         </div>
       </div>
     </div>

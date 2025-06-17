@@ -26,15 +26,17 @@ const UserProfile: React.FC = () => {
   const [isAddingEducation, setIsAddingEducation] = useState(false);
   const [editingExperience, setEditingExperience] = useState<Experience | null>(null);
   const [editingEducation, setEditingEducation] = useState<Education | null>(null);
-  
-  const [formData, setFormData] = useState({
-    name: userProfile?.name || "",
-    email: userProfile?.email || "",
-    phone: userProfile?.phone || "",
-    location: userProfile?.location || "",
-    bio: userProfile?.bio || "",
-    skills: userProfile?.skills.join(", ") || "",
-  });
+const [formData, setFormData] = useState({
+  name: userProfile?.name || "",
+  email: userProfile?.email || "",
+  phone: userProfile?.phone || "",
+  location: userProfile?.location || "",
+  bio: userProfile?.bio || "",
+  skills: Array.isArray(userProfile?.skills) ? userProfile.skills.join(", ") : "",
+});
+const experiences = userProfile?.experience || [];
+const educationList = userProfile?.education || [];
+
 
   const [experienceForm, setExperienceForm] = useState<Partial<Experience>>({
     company: "",
@@ -234,30 +236,7 @@ const UserProfile: React.FC = () => {
                       <p className="text-sm text-gray-600">{userProfile.phone}</p>
                     )}
                   </div>
-                  
-                  <div>
-                    <h3 className="font-medium mb-2">Skills</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {userProfile.skills.map((skill, index) => (
-                        <span 
-                          key={index}
-                          className="bg-job-light text-job-primary text-xs font-medium px-2.5 py-1 rounded"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <Link to="/resume-builder">
-                      <Button 
-                        className="w-full bg-job-primary hover:bg-job-secondary"
-                      >
-                        Build Resume
-                      </Button>
-                    </Link>
-                  </div>
+                
                 </div>
               </CardContent>
             </Card>

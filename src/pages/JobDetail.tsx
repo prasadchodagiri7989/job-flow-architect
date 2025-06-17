@@ -169,12 +169,6 @@ const handleSubmitApplication = async () => {
                     <span className="font-medium">{job.company}</span>
                   </div>
                 </div>
-                <Button 
-                  className="bg-job-primary hover:bg-job-secondary"
-                  onClick={handleApply}
-                >
-                  Apply Now
-                </Button>
               </div>
 
               <div className="flex flex-wrap gap-x-6 gap-y-3 mb-8 text-sm">

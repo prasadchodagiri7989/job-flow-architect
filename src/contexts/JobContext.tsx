@@ -164,10 +164,11 @@ useEffect(() => {
     );
   };
 
-  const updateUserProfile = async (data: Partial<UserProfile>) => {
-    const res = await axios.put(`${API}/users/${currentUser?.id}`, data);
-    setUserProfile(res.data);
-  };
+const updateUserProfile = async (data: Partial<UserProfile>) => {
+  const res = await axios.put(`${API}/users/${currentUser?.id}`, data);
+  setUserProfile(res.data);
+};
+
 
   const getJobById = (id: string) => jobs.find((j) => j.id === id);
   const getApplicationsForJob = (jobId: string) => applications.filter((a) => a.jobId === jobId);
