@@ -167,6 +167,131 @@ const testimonials = [
 </div>
 
 
+      {/* Clients */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+            Our Clients
+          </h2>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            {clientLogos.map((client, index) => (
+              <div key={index} className="p-3 w-40 h-32 flex items-center justify-center transition-all border border-gray-200 shadow-md">
+                <img 
+                  src={client.logo} 
+                  alt={client.name} 
+                  className="max-h-full max-w-full"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+{/* What We Do Section */}
+    <div className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
+          What We Do
+        </h2>
+        <p className="text-center text-lg text-gray-600 mb-12">
+          HR & Recruitment Experts – Empowering Your Growth
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Blue Collar Card */}
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+            <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-100 rounded-full"></div>
+            <img
+              src="/assets/blue_collar.jpg"
+              alt="Blue Collar Recruitment"
+              className="w-full h-50 object-cover rounded-md mb-4"
+            />
+            <div className="flex justify-center mb-4">
+              <div className="bg-blue-100 p-3 rounded-full">
+                <Briefcase className="h-6 w-6 text-blue-700" />
+              </div>
+            </div>
+            <h3 className="text-xl font-bold mb-2">Blue Collar Recruitment</h3>
+            <p className="text-gray-600">
+              We connect skilled labor and technical workforce with employers across industries, ensuring reliability and efficiency in every hire.
+            </p>
+          </div>
+
+          {/* White Collar Card */}
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+            <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-gray-200 rounded-full"></div>
+            <img
+              src="/assets/white_collar.jpg"
+              alt="White Collar Recruitment"
+              className="w-full h-50 object-cover rounded-md mb-4"
+            />
+            <div className="flex justify-center mb-4">
+              <div className="bg-gray-200 p-3 rounded-full">
+                <Users className="h-6 w-6 text-gray-800" />
+              </div>
+            </div>
+            <h3 className="text-xl font-bold mb-2">White Collar Recruitment</h3>
+            <p className="text-gray-600">
+              From mid-level to executive roles, we source professionals that match your business culture and strategic goals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{/* About Us Section */}
+<section className="py-16 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">About Us</h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        With over 30 years of HR consulting experience, NM HR Consultancy is your trusted recruitment and HR solutions partner in Abu Dhabi and across the UAE.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-10 items-center">
+      {/* Left Side Content */}
+      <div>
+        <h3 className="text-xl font-semibold mb-4 text-job-primary">Company. People. Growth.</h3>
+        <p className="text-gray-700 mb-6">
+          At NM HR Consultancy, we connect businesses with top-tier talent from across the globe. Our services go beyond hiring—we offer end-to-end HR solutions that support growth, compliance, and long-term success.
+        </p>
+        <ul className="space-y-3 text-gray-700">
+          <li>✅ 582+ Successful Placements</li>
+          <li>✅ 500+ Satisfied Clients</li>
+          <li>✅ 30+ Years of Recruitment Expertise</li>
+          <li>✅ Global Talent Access – India, Philippines, Sri Lanka & more</li>
+        </ul>
+      </div>
+
+      {/* Right Side Visual / Image */}
+      <div>
+        <img
+          src="/assets/about_us.jpg"
+          alt="NM HR Team"
+          className="rounded-lg shadow-lg w-full object-cover"
+        />
+      </div>
+    </div>
+
+    {/* Mission & Vision */}
+    <div className="mt-16 grid md:grid-cols-2 gap-8">
+      <div className="bg-white p-6 rounded-lg shadow border">
+        <h4 className="text-xl font-bold mb-3 text-job-primary">Our Vision</h4>
+        <p className="text-gray-700">
+          To redefine recruitment by offering ethical, efficient, and people-first manpower solutions that empower both businesses and professionals across the UAE and beyond.
+        </p>
+      </div>
+      <div className="bg-white p-6 rounded-lg shadow border">
+        <h4 className="text-xl font-bold mb-3 text-job-primary">Our Mission</h4>
+        <p className="text-gray-700">
+          To deliver skilled talent, foster career growth, and support organizations with personalized staffing and consultancy services that ensure long-term success.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Services section */}
 <div className="py-16 bg-white">
@@ -254,6 +379,65 @@ const testimonials = [
     </div>
   </div>
 </div>
+
+{/* How It Works Section */}
+<section className="py-16 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">How It Works</h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        Our streamlined 5-step process ensures efficient, compliant, and successful placements tailored to your business needs.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-5 gap-6 text-center">
+      {/* Step 1 */}
+      <div className="p-6 rounded-lg bg-gray-50 shadow hover:shadow-md transition">
+        <div className="text-4xl font-bold text-job-primary mb-2">01</div>
+        <h3 className="font-semibold text-lg mb-2">Consultation</h3>
+        <p className="text-gray-600 text-sm">
+          Understand your business goals, timelines, and culture to define the ideal candidate profile.
+        </p>
+      </div>
+
+      {/* Step 2 */}
+      <div className="p-6 rounded-lg bg-gray-50 shadow hover:shadow-md transition">
+        <div className="text-4xl font-bold text-job-primary mb-2">02</div>
+        <h3 className="font-semibold text-lg mb-2">Sourcing</h3>
+        <p className="text-gray-600 text-sm">
+          Identify top talent from 15+ sourcing countries using a global recruitment network.
+        </p>
+      </div>
+
+      {/* Step 3 */}
+      <div className="p-6 rounded-lg bg-gray-50 shadow hover:shadow-md transition">
+        <div className="text-4xl font-bold text-job-primary mb-2">03</div>
+        <h3 className="font-semibold text-lg mb-2">Screening</h3>
+        <p className="text-gray-600 text-sm">
+          Each candidate is evaluated with interviews, skill tests, and background/reference checks.
+        </p>
+      </div>
+
+      {/* Step 4 */}
+      <div className="p-6 rounded-lg bg-gray-50 shadow hover:shadow-md transition">
+        <div className="text-4xl font-bold text-job-primary mb-2">04</div>
+        <h3 className="font-semibold text-lg mb-2">Mobilization</h3>
+        <p className="text-gray-600 text-sm">
+          We handle visa processing, travel, onboarding, and documentation for a smooth transition.
+        </p>
+      </div>
+
+      {/* Step 5 */}
+      <div className="p-6 rounded-lg bg-gray-50 shadow hover:shadow-md transition">
+        <div className="text-4xl font-bold text-job-primary mb-2">05</div>
+        <h3 className="font-semibold text-lg mb-2">Follow-up</h3>
+        <p className="text-gray-600 text-sm">
+          Post-placement support, performance tracking, and continuous client-candidate care.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
       {/* Core Solutions Section */}
@@ -473,25 +657,6 @@ const testimonials = [
         </div>
       </div>
 
-      {/* Clients */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            Our Clients
-          </h2>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {clientLogos.map((client, index) => (
-              <div key={index} className="p-3 w-40 h-32 flex items-center justify-center transition-all border border-gray-200 shadow-md">
-                <img 
-                  src={client.logo} 
-                  alt={client.name} 
-                  className="max-h-full max-w-full"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
       {/* CTA and contact section */}
       <div className="py-16 bg-gradient-to-br from-job-background via-white to-job-light relative">
         <div className="container mx-auto px-4">
