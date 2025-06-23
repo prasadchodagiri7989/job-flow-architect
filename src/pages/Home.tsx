@@ -91,80 +91,67 @@ const testimonials = [
 
   return (
     <Layout>
-      {/* Hero section */}
-<div className="relative h-[600px] md:h-[700px]">
-  {/* Background image */}
-  <div
-    className="absolute inset-0 z-0"
-    style={{
-      backgroundImage: "url('/assets/slideshow4.jpg')",
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-    }}
-  ></div>
+{/* Hero section */}
+<div className="relative h-[100vh] md:h-[100vh]">
+  {/* Background video */}
+  <video
+    className="absolute inset-0 w-full h-full object-cover z-0"
+    autoPlay
+    loop
+    muted
+    playsInline
+  >
+    <source src="/assets/4480406-hd.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-  {/* Dark overlay with stronger opacity */}
-<div
-  className="absolute inset-0 z-0"
-  style={{
-    background: 'linear-gradient(to right, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-  }}
-></div>
+  {/* Uniform dark overlay */}
+  <div className="absolute inset-0 bg-black/60 z-0"></div>
 
-
-  {/* Foreground content with light transparent base */}
-  <div className="relative z-10 bg-white/10">
-    <div className="container mx-auto px-4 py-16 md:py-24 h-[600px] md:h-[700px]">
-      <div className="max-w-2xl relative">
-        <div
-          className="hidden md:block absolute -right-20 -top-14 w-40 h-60 opacity-10"
-          style={{
-            backgroundImage:
-              'radial-gradient(circle, rgba(79, 70, 229, 0.3) 1px, transparent 1px)',
-            backgroundSize: '15px 15px',
-          }}
-        ></div>
+  {/* Foreground content */}
+  <div className="relative z-10">
+    <div className="container mx-auto px-4 py-16 md:py-24 h-full flex items-center">
+      <div className="max-w-2xl mt-48">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
           Your Recruitment Partner
         </h1>
         <p className="text-xl md:text-2xl text-white font-semibold mb-6">
           Talent is the key to Growth
         </p>
-
         <p className="text-lg text-gray-200 mb-8">
           To be the most reliable and trustworthy global recruitment partner to both our clients and candidates.
         </p>
+
         <div className="flex flex-col sm:flex-row gap-4">
           {isAuthenticated ? (
-  <Link to="/jobs" className="flex-1 sm:flex-none">
-    <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
-      Browse Jobs
-    </Button>
-  </Link>
-) : (
-  <>
-    <Link to="/jobs" className="flex-1 sm:flex-none">
-      <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
-        Browse Jobs
-      </Button>
-    </Link>
-    <Link to="/login" className="flex-1 sm:flex-none">
-      <Button
-        variant="outline"
-        className="w-full sm:w-auto text-lg px-8 py-6 border-white text-white bg-transparent"
-      >
-        Sign In
-      </Button>
-    </Link>
-  </>
-)}
-
+            <Link to="/jobs" className="flex-1 sm:flex-none">
+              <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
+                Browse Jobs
+              </Button>
+            </Link>
+          ) : (
+            <>
+              <Link to="/jobs" className="flex-1 sm:flex-none">
+                <Button className="w-full sm:w-auto bg-job-primary hover:bg-job-secondary text-lg px-8 py-6">
+                  Browse Jobs
+                </Button>
+              </Link>
+              <Link to="/login" className="flex-1 sm:flex-none">
+                <Button
+                  variant="outline"
+                  className="w-full sm:w-auto text-lg px-8 py-6 border-white text-white bg-transparent"
+                >
+                  Sign In
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
       {/* Clients */}

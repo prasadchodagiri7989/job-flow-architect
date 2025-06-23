@@ -15,20 +15,10 @@ const navbarElements = {
     label: "Services",
     path: "/",
     subItems: [
-      { label: "Career Support Services", path: "/" },
-      { label: "Employee Handbook", path: "/" },
-      { label: "Employees Reference Check", path: "/" },
-      { label: "Headhunting Services", path: "/" },
-      { label: "HRMS Consulting Services", path: "/" },
-      { label: "International Recruitments", path: "/" },
-      { label: "Manpower Services", path: "/" },
-      { label: "Orientation Program", path: "/" },
-      { label: "Organization Restructuring", path: "/" },
-      { label: "Policies & Procedures", path: "/" },
-      { label: "Psychometric Assessments", path: "/" },
-      { label: "Recruitment Services", path: "/" },
-      { label: "Resume Services", path: "/" },
-      { label: "Resume Writing Services", path: "/" },
+      { label: "Staffing Solutions", path: "/services/staffing-solutions" },
+      { label: "Overseas Recruitment", path: "/services/overseas-recruitment" },
+      { label: "Document & Visa Processing", path: "/services/visa-processing" },
+      { label: "Client Support", path: "/services/client-support" },
     ],
   },
   applications: { label: "My Applications", path: "/applications" },
@@ -43,6 +33,17 @@ const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const timeoutRef = useRef(null);
+const [scrolled, setScrolled] = useState(false);
+
+React.useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 10);
+  };
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
 
   const showDropdown = (key) => {
     clearTimeout(timeoutRef.current);
@@ -61,8 +62,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm py-3">
-      <div className="container mx-auto flex items-center justify-between px-4">
+<nav
+  className={`fixed top-0 w-full z-50 py-3 transition-all duration-300 ${
+    scrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
+  }`}
+>
+
+      <div className="container mx-auto flex items-center justify-between px-4 backdrop-blur-md md:backdrop-blur-none">
         {/* Mobile Toggle Button */}
         <button
           className="md:hidden mr-2"
@@ -82,10 +88,10 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 items-center">
-          <Link to="/" className="text-gray-700 hover:text-job-primary">
+          <Link to="/" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
             Home
           </Link>
-          <Link to="/about" className="text-gray-700 hover:text-job-primary">
+          <Link to="/about" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
             About Us
           </Link>
 
@@ -97,7 +103,7 @@ const Navbar: React.FC = () => {
                 onMouseEnter={() => showDropdown(key)}
                 onMouseLeave={hideDropdown}
               >
-                <button className="text-gray-700 hover:text-job-primary">
+                <button className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
                   {item.label}
                 </button>
                 {activeDropdown === key && (
@@ -119,16 +125,16 @@ const Navbar: React.FC = () => {
 
           {!isAdmin && (
             <>
-              <Link to="/jobs" className="text-gray-700 hover:text-job-primary">
+              <Link to="/jobs" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
                 Current Openings
               </Link>
-              <Link to="/blogs" className="text-gray-700 hover:text-job-primary">
+              <Link to="/blogs" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
                 Blogs
               </Link>
-              <Link to="/clients" className="text-gray-700 hover:text-job-primary">
+              <Link to="/clients" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
                 Clients
               </Link>
-              <Link to="/contact" className="text-gray-700 hover:text-job-primary">
+              <Link to="/contact" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
                 Contact
               </Link>
             </>
@@ -140,14 +146,12 @@ const Navbar: React.FC = () => {
                 <>
                   <Link
                     to={navbarElements.profile.path}
-                    className="text-gray-700 hover:text-job-primary"
-                  >
+                    className={`${scrolled ? "text-black" : "text-white"} font-semibold `}                  >
                     {navbarElements.profile.label}
                   </Link>
                   <Link
                     to={navbarElements.applications.path}
-                    className="text-gray-700 hover:text-job-primary"
-                  >
+                    className={`${scrolled ? "text-black" : "text-white"} font-semibold `}                  >
                     {navbarElements.applications.label}
                   </Link>
                 </>
@@ -156,14 +160,12 @@ const Navbar: React.FC = () => {
                 <>
                   <Link
                     to={navbarElements.adminDashboard.path}
-                    className="text-gray-700 hover:text-job-primary"
-                  >
+                    className={`${scrolled ? "text-black" : "text-white"} font-semibold `}                  >
                     {navbarElements.adminDashboard.label}
                   </Link>
                   <Link
                     to={navbarElements.manageJobs.path}
-                    className="text-gray-700 hover:text-job-primary"
-                  >
+                    className={`${scrolled ? "text-black" : "text-white"} font-semibold `}                  >
                     {navbarElements.manageJobs.label}
                   </Link>
                 </>
