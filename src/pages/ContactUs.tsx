@@ -23,7 +23,7 @@ const ContactUs = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 mt-20">
         <h1 className="text-3xl font-bold text-center mb-2 text-job-primary">Contact Us</h1>
         <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
           Have questions or need our recruitment services? Get in touch with our team and we'll be happy to assist you.

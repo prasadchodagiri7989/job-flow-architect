@@ -36,6 +36,13 @@ import PricingPlans from "./pages/PricingPlans";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import ScrollToTop from "./components/ScrollToTop";
+import StaffingSolutions from "./pages/StaffingSolutions";
+import OverseasRecruitment from "./pages/OverseasRecruitment";
+import VisaProcessing from "./pages/VisaProcessing";
+import ClientSupport from "./pages/ClientSupport";
+
+import Blogs from "./pages/Blog";
+import Clients from "./pages/Clients"
 
 // Components
 import ProtectedRoute from "./components/layout/ProtectedRoute";
@@ -69,6 +76,17 @@ const App = () => (
               <Route path="/pricing-plans" element={<PricingPlans />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-conditions" element={<TermsConditions />} />
+
+              <Route path="/services/staffing-solutions" element={<StaffingSolutions />} />
+              <Route path="/services/overseas-recruitment" element={<OverseasRecruitment />} />
+              <Route path="/services/visa-processing" element={<VisaProcessing />} />
+              <Route path="/services/client-support" element={<ClientSupport />} />
+
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/clients" element={<Clients />} />
+              <Route path="/contact" element={<ContactUs />} />
+
+
 
               {/* User routes */}
               <Route

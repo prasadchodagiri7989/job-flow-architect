@@ -24,22 +24,7 @@ export const BackgroundElements: React.FC = () => {
           backgroundSize: '15px 15px',
         }}
       ></div>
-      
-      {/* Growth arrow */}
-      <div className="hidden lg:block absolute right-[10%] bottom-[20%]">
-        <svg width="120" height="100" viewBox="0 0 120 100" className="opacity-10">
-          <path 
-            d="M10,80 Q30,40 60,30 T110,10" 
-            stroke="#4f46e5" 
-            strokeWidth="4" 
-            fill="none"
-          />
-          <polygon 
-            points="110,0 120,10 110,20" 
-            fill="#4f46e5"
-          />
-        </svg>
-      </div>
+
     </div>
   );
 };

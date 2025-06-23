@@ -42,7 +42,7 @@ const UserApplications: React.FC = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 mt-20">
         <h1 className="text-2xl md:text-3xl font-bold mb-8">My Applications</h1>
 
         {applications.length > 0 ? (

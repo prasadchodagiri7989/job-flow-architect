@@ -9,7 +9,7 @@ const JobsList: React.FC = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto py-8 px-4">
+      <div className="container mx-auto py-8 px-4 mt-24">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Find Your Dream Job

@@ -13,32 +13,61 @@ import {
 const About: React.FC = () => {
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-12 mt-10">
+      <div className="container mx-auto px-4 py-12 mt-16">
+
         {/* Hero Section */}
-        <section className="text-center max-w-3xl mx-auto mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Empowering Growth Through Strategic HR Solutions
-          </h1>
-          <p className="text-gray-600 leading-relaxed text-lg">
-            NM HR Consultancy delivers expert HR and recruitment services across UAE and GCC,
-            helping organizations thrive through effective talent and workforce management.
-          </p>
+        <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-center mb-12">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/assets/overlay2.jpg')" }}
+          ></div>
+          <div className="absolute inset-0 bg-black opacity-60"></div>
+          <div className="relative z-10 max-w-3xl px-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Empowering Growth Through Strategic HR Solutions
+            </h1>
+            <p className="text-gray-200 leading-relaxed text-lg">
+              NM HR Consultancy delivers expert HR and recruitment services across UAE and GCC,
+              helping organizations thrive through effective talent and workforce management.
+            </p>
+          </div>
         </section>
 
-        {/* Our Story */}
+        {/* Mission & Vision */}
         <section className="mb-12">
           <Card>
             <CardContent className="p-6 md:p-8">
               <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Building className="h-6 w-6 text-job-primary" /> Who We Are
+                <Globe className="h-6 w-6 text-job-primary" /> Our Mission & Vision
               </h2>
-              <p className="text-gray-700 leading-relaxed">
-                Founded with a vision to transform HR processes, NM HR Consultancy has built
-                a strong reputation in the UAE and GCC for its commitment to excellence and
-                customized workforce solutions. We specialize in recruitment, staffing,
-                document processing, and HR advisory—serving industries ranging from
-                hospitality to construction.
+              <p className="text-gray-700 mb-3">
+                <strong>Our Mission:</strong> Empower clients with skilled and reliable human resources while enabling
+                professionals to grow in their careers. We strive to deliver tailored staffing and consultancy solutions that
+                support long-term success.
               </p>
+              <p className="text-gray-700">
+                <strong>Our Vision:</strong> To redefine recruitment through ethical, efficient, and dependable HR solutions.
+                We aim to foster partnerships by aligning the right talent with the right opportunities across the UAE and GCC.
+              </p>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Why NM HR Consultancy */}
+        <section className="mb-12">
+          <Card>
+            <CardContent className="p-6 md:p-8">
+              <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+                <CheckCircle className="h-6 w-6 text-job-primary" /> Why NM HR Consultancy?
+              </h2>
+              <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                <li>Access to 15+ sourcing countries and a large talent pool</li>
+                <li>Custom recruitment aligned to your business goals</li>
+                <li>Quick turnaround without compromising compliance</li>
+                <li>Transparent visa, payroll & HR services</li>
+                <li>30+ years of combined HR & recruitment experience</li>
+                <li>Long-term support post-placement</li>
+              </ul>
             </CardContent>
           </Card>
         </section>
@@ -48,50 +77,41 @@ const About: React.FC = () => {
           <Card>
             <CardContent className="p-6 md:p-8">
               <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <CheckCircle className="h-6 w-6 text-job-primary" /> What Drives Us
+                <Award className="h-6 w-6 text-job-primary" /> Our Core Values
               </h2>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                <li>Integrity in every client relationship</li>
-                <li>Commitment to quality service delivery</li>
-                <li>Expertise backed by decades of experience</li>
-                <li>Innovation in recruitment and HR consulting</li>
+                <li><strong>Integrity:</strong> We operate with honesty and transparency.</li>
+                <li><strong>Excellence:</strong> We strive to exceed expectations in every service.</li>
+                <li><strong>Commitment:</strong> Dedicated to long-term partnerships and results.</li>
+                <li><strong>Respect:</strong> We value every client, candidate, and stakeholder equally.</li>
               </ul>
             </CardContent>
           </Card>
         </section>
 
-        {/* Industries Served */}
+        {/* Industries We Serve */}
         <section className="mb-12">
           <Card>
             <CardContent className="p-6 md:p-8">
               <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                 <Briefcase className="h-6 w-6 text-job-primary" /> Industries We Serve
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-gray-700">
-                <span>🏨 Hospitality</span>
-                <span>🛠️ Construction</span>
-                <span>🧼 Facility Management</span>
-                <span>🛍️ Retail</span>
-                <span>🧹 Cleaning & Maintenance</span>
-                <span>🔐 Security Services</span>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-gray-700 text-sm">
+                <span>🛠️ Civil & Architecture</span>
+                <span>🔧 Mechanical</span>
+                <span>⚡ Electrical</span>
+                <span>🧼 Cleaning & Housekeeping</span>
+                <span>🏨 Hotel & Hospitality</span>
+                <span>🏬 Supermarkets</span>
+                <span>🏥 Medical / Paramedical</span>
+                <span>🧵 Garments & Textiles</span>
+                <span>🚛 Heavy Drivers & Equipment Operators</span>
+                <span>🛡️ Security Services</span>
+                <span>🏭 Manufacturing & Production</span>
+                <span>🌾 Agriculture & Plantation</span>
+                <span>🛠️ Denting, Painting & Welding</span>
+                <span>💼 Administration</span>
               </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Reach and Commitment */}
-        <section className="mb-12">
-          <Card>
-            <CardContent className="p-6 md:p-8">
-              <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Globe className="h-6 w-6 text-job-primary" /> Our Reach & Commitment
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                With operational presence across Dubai, Abu Dhabi, and Al Ain, we
-                support both global corporations and local businesses. Our team
-                ensures a smooth experience in candidate sourcing, visa processing,
-                and onboarding while maintaining the highest levels of compliance.
-              </p>
             </CardContent>
           </Card>
         </section>
@@ -103,20 +123,20 @@ const About: React.FC = () => {
               <h2 className="text-2xl font-semibold mb-6 text-center">By The Numbers</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div>
-                  <p className="text-4xl font-bold text-job-primary">20+</p>
-                  <p className="text-gray-600 text-sm">Years of Industry Experience</p>
+                  <p className="text-4xl font-bold text-job-primary">582+</p>
+                  <p className="text-gray-600 text-sm">Successful Placements</p>
                 </div>
                 <div>
-                  <p className="text-4xl font-bold text-job-primary">100+</p>
-                  <p className="text-gray-600 text-sm">Clients Served</p>
+                  <p className="text-4xl font-bold text-job-primary">215+</p>
+                  <p className="text-gray-600 text-sm">Experienced Professionals</p>
                 </div>
                 <div>
-                  <p className="text-4xl font-bold text-job-primary">15+</p>
-                  <p className="text-gray-600 text-sm">Industries Covered</p>
+                  <p className="text-4xl font-bold text-job-primary">30+</p>
+                  <p className="text-gray-600 text-sm">Years of Expertise</p>
                 </div>
                 <div>
-                  <p className="text-4xl font-bold text-job-primary">1000+</p>
-                  <p className="text-gray-600 text-sm">Candidates Placed</p>
+                  <p className="text-4xl font-bold text-job-primary">500+</p>
+                  <p className="text-gray-600 text-sm">Satisfied Clients</p>
                 </div>
               </div>
             </CardContent>
@@ -150,6 +170,7 @@ const About: React.FC = () => {
             </CardContent>
           </Card>
         </section>
+
       </div>
     </Layout>
   );

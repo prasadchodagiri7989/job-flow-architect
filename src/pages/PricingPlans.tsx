@@ -9,7 +9,7 @@ import { CheckCircle, XCircle } from "lucide-react";
 const PricingPlans = () => {
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 mt-20">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold mb-3 text-job-primary">Pricing & Plans</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">

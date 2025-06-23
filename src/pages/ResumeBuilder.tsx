@@ -64,7 +64,7 @@ const ResumeBuilder: React.FC = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 mt-20">
         <div className="flex flex-col lg:flex-row justify-between items-start mb-6 gap-4">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold">Resume Builder</h1>

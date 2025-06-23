@@ -150,7 +150,7 @@ const handleSubmitApplication = async () => {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 mt-20">
         <div className="mb-8">
           <Link to="/jobs" className="text-job-primary hover:underline inline-flex items-center">
             <ArrowLeft className="h-4 w-4 mr-1" /> Back to jobs

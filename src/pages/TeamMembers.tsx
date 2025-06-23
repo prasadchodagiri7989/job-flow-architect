@@ -46,7 +46,7 @@ const teamMembers = [
 const TeamMembers = () => {
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 mt-20">
         <h1 className="text-3xl font-bold text-center mb-2 text-job-primary">Our Team</h1>
         <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
           Meet the dedicated professionals behind NM HR Consultancy. With decades of combined experience,

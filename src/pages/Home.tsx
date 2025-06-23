@@ -186,10 +186,10 @@ const testimonials = [
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Blue Collar Card */}
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+          <div className="bg-white p-6 md:ml-48 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
             <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-100 rounded-full"></div>
             <img
-              src="/assets/blue_collar.jpg"
+              src="/assets/bluecollar.jpg"
               alt="Blue Collar Recruitment"
               className="w-full h-50 object-cover rounded-md mb-4"
             />
@@ -205,10 +205,10 @@ const testimonials = [
           </div>
 
           {/* White Collar Card */}
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+          <div className="bg-white p-6 md:mr-48 rounded-lg shadow-lg text-center relative overflow-hidden border border-gray-100 transform transition-transform duration-300 hover:scale-105">
             <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-gray-200 rounded-full"></div>
             <img
-              src="/assets/white_collar.jpg"
+              src="/assets/whitecollar.jpg"
               alt="White Collar Recruitment"
               className="w-full h-50 object-cover rounded-md mb-4"
             />
@@ -254,7 +254,7 @@ const testimonials = [
       {/* Right Side Visual / Image */}
       <div>
         <img
-          src="/assets/about_us.jpg"
+          src="/assets/hr1.jpg"
           alt="NM HR Team"
           className="rounded-lg shadow-lg w-full object-cover"
         />

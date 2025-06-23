@@ -7,7 +7,7 @@ import { Globe, BriefcaseBusiness, Users } from "lucide-react";
 const OurSolutions = () => {
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 mt-20">
         <h1 className="text-3xl font-bold text-center mb-10 text-job-primary">Our Solutions</h1>
         
         <Tabs defaultValue="overseas" className="w-full">
