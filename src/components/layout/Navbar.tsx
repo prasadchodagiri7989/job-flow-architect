@@ -9,6 +9,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { User, Menu } from "lucide-react";
+import { useLocation } from "react-router-dom";
+
 
 const navbarElements = {
   services: {
@@ -60,11 +62,18 @@ React.useEffect(() => {
     logout();
     navigate("/login");
   };
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
 
   return (
 <nav
   className={`fixed top-0 w-full z-50 py-3 transition-all duration-300 ${
-    scrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
+    isHomePage
+      ? scrolled
+        ? "bg-white/80 backdrop-blur-md shadow-md"
+        : "bg-transparent"
+      : "bg-white shadow-md"
   }`}
 >
 
@@ -88,10 +97,17 @@ React.useEffect(() => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 items-center">
-          <Link to="/" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
+          <Link
+            to="/"
+            className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}
+          >
             Home
           </Link>
-          <Link to="/about" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
+          <Link to="/about" className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}>
             About Us
           </Link>
 
@@ -103,7 +119,9 @@ React.useEffect(() => {
                 onMouseEnter={() => showDropdown(key)}
                 onMouseLeave={hideDropdown}
               >
-                <button className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
+                <button className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}>
                   {item.label}
                 </button>
                 {activeDropdown === key && (
@@ -125,16 +143,24 @@ React.useEffect(() => {
 
           {!isAdmin && (
             <>
-              <Link to="/jobs" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
+              <Link to="/jobs" className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}>
                 Current Openings
               </Link>
-              <Link to="/blogs" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
+              <Link to="/blogs" className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}>
                 Blogs
               </Link>
-              <Link to="/clients" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
+              <Link to="/clients" className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}>
                 Clients
               </Link>
-              <Link to="/contact" className={`${scrolled ? "text-black" : "text-white"} font-semibold `}>
+              <Link to="/contact" className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}>
                 Contact
               </Link>
             </>
@@ -146,12 +172,16 @@ React.useEffect(() => {
                 <>
                   <Link
                     to={navbarElements.profile.path}
-                    className={`${scrolled ? "text-black" : "text-white"} font-semibold `}                  >
+                    className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}                  >
                     {navbarElements.profile.label}
                   </Link>
                   <Link
                     to={navbarElements.applications.path}
-                    className={`${scrolled ? "text-black" : "text-white"} font-semibold `}                  >
+                    className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}                  >
                     {navbarElements.applications.label}
                   </Link>
                 </>
@@ -160,12 +190,16 @@ React.useEffect(() => {
                 <>
                   <Link
                     to={navbarElements.adminDashboard.path}
-                    className={`${scrolled ? "text-black" : "text-white"} font-semibold `}                  >
+                    className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}                  >
                     {navbarElements.adminDashboard.label}
                   </Link>
                   <Link
                     to={navbarElements.manageJobs.path}
-                    className={`${scrolled ? "text-black" : "text-white"} font-semibold `}                  >
+                    className={`font-semibold ${
+              isHomePage ? (scrolled ? "text-black" : "text-white") : "text-black"
+            }`}                  >
                     {navbarElements.manageJobs.label}
                   </Link>
                 </>
