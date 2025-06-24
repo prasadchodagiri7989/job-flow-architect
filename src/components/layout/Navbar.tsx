@@ -68,7 +68,7 @@ React.useEffect(() => {
 
   return (
 <nav
-  className={`fixed top-0 w-full z-50 py-3 transition-all duration-300 ${
+  className={`fixed top-0 w-full z-50 transition-all duration-300 ${
     isHomePage
       ? scrolled
         ? "bg-white/80 backdrop-blur-md shadow-md"
@@ -77,7 +77,7 @@ React.useEffect(() => {
   }`}
 >
 
-      <div className="container mx-auto flex items-center justify-between px-4 backdrop-blur-md md:backdrop-blur-none">
+      <div className="py-3 container mx-auto flex items-center justify-between px-4 backdrop-blur-md md:backdrop-blur-none">
         {/* Mobile Toggle Button */}
         <button
           className="md:hidden mr-2"

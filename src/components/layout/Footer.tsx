@@ -77,21 +77,27 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
-            <ul className="space-y-2">
-              <li className="flex items-start">
-                <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
-                <span>Email: ceo@nmhruae.com</span>
-              </li>
-              <li className="flex items-start">
-                <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
-                <span>Phone: +971 54 759 3444</span>
-              </li>
-              <li className="flex items-start">
-                <span className="ml-6">Abu Dhabi, UAE</span>
-              </li>
-            </ul>
-          </div>
+  <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
+  <ul className="space-y-2">
+    <li className="flex items-start">
+      <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
+      <span>Email: ceo@nmhruae.com</span>
+    </li>
+    <li className="flex items-start">
+      <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
+      <span>Phone: +971 54 759 3444</span>
+    </li>
+    <li className="flex items-start">
+      <span className="ml-6">Abu Dhabi, UAE</span>
+    </li>
+    <li className="flex items-start">
+      <span className="ml-6">
+        Bhupathi Surya Central Mall, Dondaparthy, Railway New Colony, Visakhapatnam, Andhra Pradesh 530016, India
+      </span>
+    </li>
+  </ul>
+</div>
+
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
