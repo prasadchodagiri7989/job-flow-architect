@@ -19,7 +19,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <SidebarWrapper>
           <div className="flex-grow flex flex-col min-h-[calc(100vh-64px)]">
             {/* Removed SidebarTrigger from here */}
-            <div className="flex-grow p-4">{children}</div>
+            <div className="flex-grow">{children}</div>
             <Footer />
           </div>
         </SidebarWrapper>
