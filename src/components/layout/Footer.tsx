@@ -77,26 +77,35 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-  <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
-  <ul className="space-y-2">
-    <li className="flex items-start">
-      <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
-      <span>Email: ceo@nmhruae.com</span>
-    </li>
-    <li className="flex items-start">
-      <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
-      <span>Phone: +971 54 759 3444</span>
-    </li>
-    <li className="flex items-start">
-      <span className="ml-6">Abu Dhabi, UAE</span>
-    </li>
-    <li className="flex items-start">
-      <span className="ml-6">
-        Bhupathi Surya Central Mall, Dondaparthy, Railway New Colony, Visakhapatnam, Andhra Pradesh 530016, India
-      </span>
-    </li>
-  </ul>
-</div>
+            <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
+            <ul className="space-y-4">
+              {/* Dubai Office */}
+              <li>
+                <div className="flex items-start mt-1">
+                  <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
+                  <span>Email: ceo@nmhruae.com</span>
+                </div>
+                <div className="flex items-start mt-1">
+                  <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
+                  <span>Phone: +971 54 759 3444</span>
+                </div>
+                <br/>
+                <h4 className="font-semibold text-white">Dubai Office:</h4>
+                <div className="ml-6 text-sm text-gray-400 mt-1">Abu Dhabi, UAE</div>
+              </li>
+
+              {/* India Office */}
+              <li>
+                <h4 className="font-semibold text-white">India Office:</h4>
+                <div className="ml-6 text-sm text-gray-400">
+                  Bhupathi Surya Central Mall,<br />
+                  Dondaparthy, Railway New Colony,<br />
+                  Visakhapatnam, Andhra Pradesh 530016, India
+                </div>
+              </li>
+            </ul>
+          </div>
+
 
         </div>
 
