@@ -79,34 +79,40 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
             <ul className="space-y-4">
-              {/* Dubai Office */}
               <li>
-                <div className="flex items-start mt-1">
-                  <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
-                  <span>Email: ceo@nmhruae.com</span>
+                <h4 className="font-semibold text-white">Dubai Office</h4>
+                <div className="ml-6 text-sm text-gray-400 space-y-1">
+                  <div className="flex items-start">
+                    <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
+                    <span>ceo@nmhruae.com</span>
+                  </div>
+                  <div className="flex items-start">
+                    <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
+                    <span>+971 54 759 3444</span>
+                  </div>
+                  <div>Abu Dhabi, UAE</div>
                 </div>
-                <div className="flex items-start mt-1">
-                  <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
-                  <span>Phone: +971 54 759 3444</span>
-                </div>
-                <br/>
-                <h4 className="font-semibold text-white">Dubai Office:</h4>
-                <div className="ml-6 text-sm text-gray-400 mt-1">Abu Dhabi, UAE</div>
               </li>
-
-              {/* India Office */}
               <li>
-                <h4 className="font-semibold text-white">India Office:</h4>
-                <div className="ml-6 text-sm text-gray-400">
-                  Bhupathi Surya Central Mall,<br />
-                  Dondaparthy, Railway New Colony,<br />
-                  Visakhapatnam, Andhra Pradesh 530016, India
+                <h4 className="font-semibold text-white">India Office</h4>
+                <div className="ml-6 text-sm text-gray-400 space-y-1">
+                  <div className="flex items-start">
+                    <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
+                    <span>ceo@nmhruae.com</span>
+                  </div>
+                  <div className="flex items-start">
+                    <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
+                    <span>+91 86880 53307</span>
+                  </div>
+                  <div>
+                    Bhupathi Surya Central Mall,<br />
+                    Dondaparthy, Railway New Colony,<br />
+                    Visakhapatnam, Andhra Pradesh 530016, India
+                  </div>
                 </div>
               </li>
             </ul>
           </div>
-
-
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">

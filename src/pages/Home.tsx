@@ -1,5 +1,6 @@
-
 import React from "react";
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,8 @@ import { useJobs } from "../contexts/JobContext";
 import { useAuth } from "../contexts/AuthContext";
 import JobCard from "../components/jobs/JobCard";
 import { useContext } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { 
   Briefcase, 
   Search, 
@@ -24,10 +27,20 @@ import {
 } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect } from "react";
 
 const Home: React.FC = () => {
   const { jobs } = useJobs();
   const { isAuthenticated } = useAuth();
+  useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        once: true,
+        easing: 'ease-in-out',
+      });
+  }, []);
+
+
 
 
 
@@ -155,7 +168,7 @@ const testimonials = [
 
 
       {/* Clients */}
-      <div className="py-16 bg-white">
+      <div className="py-16 bg-white" data-aos="fade-up">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Our Clients
@@ -175,7 +188,7 @@ const testimonials = [
       </div>
       
 {/* What We Do Section */}
-    <div className="py-16 bg-white">
+    <div className="py-16 bg-white" data-aos="fade-up">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
           What We Do
@@ -227,7 +240,7 @@ const testimonials = [
     </div>
 
 {/* About Us Section */}
-<section className="py-16 bg-gray-50">
+<section className="py-16 bg-gray-50" data-aos="fade-up">
   <div className="container mx-auto px-4">
     <div className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold text-gray-800">About Us</h2>
@@ -262,7 +275,7 @@ const testimonials = [
     </div>
 
     {/* Mission & Vision */}
-    <div className="mt-16 grid md:grid-cols-2 gap-8">
+    <div className="mt-16 grid md:grid-cols-2 gap-8" data-aos="fade-up">
       <div className="bg-white p-6 rounded-lg shadow border">
         <h4 className="text-xl font-bold mb-3 text-job-primary">Our Vision</h4>
         <p className="text-gray-700">
@@ -281,7 +294,7 @@ const testimonials = [
 
 
       {/* Services section */}
-<div className="py-16 bg-white">
+<div className="py-16 bg-white" data-aos="fade-up">
   <div className="container mx-auto px-4">
     <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
       Services Offered
@@ -368,7 +381,7 @@ const testimonials = [
 </div>
 
 {/* How It Works Section */}
-<section className="py-16 bg-white">
+<section className="py-16 bg-white" data-aos="fade-up">
   <div className="container mx-auto px-4">
     <div className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold text-gray-800">How It Works</h2>
@@ -428,7 +441,7 @@ const testimonials = [
 
 
       {/* Core Solutions Section */}
-      <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16">
+      <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16" data-aos="fade-up">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Core Solutions
@@ -494,33 +507,45 @@ const testimonials = [
 
 
       {/* Highlights section */}
-<div className="py-16 bg-white">
+<div className="py-16 bg-white" data-aos="fade-up">
   <div className="container mx-auto px-4">
     <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
       Our Highlights
     </h2>
 
     <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-      {highlights.map((highlight, index) => (
-        <Card
-          key={index}
-          className="border border-job-primary transition-colors"
-        >
-          <CardContent className="p-6 text-center">
-            {highlight.icon}
-            <p className="text-3xl md:text-4xl font-bold text-job-primary mb-1">
-              {highlight.count}
-            </p>
-            <p className="text-gray-600 text-sm">{highlight.title}</p>
-          </CardContent>
-        </Card>
-      ))}
+      {highlights.map((highlight, index) => {
+        const { ref, inView } = useInView({
+          triggerOnce: true,
+          threshold: 0.3, // Adjusts how much of the element should be visible
+        });
+
+        return (
+          <Card
+            key={index}
+            className="border border-job-primary transition-colors"
+            ref={ref}
+          >
+            <CardContent className="p-6 text-center">
+              {highlight.icon}
+              <p className="text-3xl md:text-4xl font-bold text-job-primary mb-1">
+                {inView ? (
+                  <CountUp end={parseInt(highlight.count)} duration={2} />
+                ) : (
+                  0
+                )}
+              </p>
+              <p className="text-gray-600 text-sm">{highlight.title}</p>
+            </CardContent>
+          </Card>
+        );
+      })}
     </div>
   </div>
 </div>
 
       {/* Process workflow */}
-      <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16">
+      <div className="bg-gradient-to-br from-job-background via-white to-job-light py-16" data-aos="fade-up">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             Our Process
@@ -567,7 +592,7 @@ const testimonials = [
       </div>
 
       {/* Featured jobs section */}
-      <div className="py-16 bg-white relative">
+      <div className="py-16 bg-white relative" data-aos="fade-up">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold">Latest Job Openings</h2>
@@ -645,7 +670,7 @@ const testimonials = [
       </div>
 
       {/* CTA and contact section */}
-      <div className="py-16 bg-gradient-to-br from-job-background via-white to-job-light relative">
+      <div className="py-16 bg-gradient-to-br from-job-background via-white to-job-light relative" data-aos="fade-up">
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
