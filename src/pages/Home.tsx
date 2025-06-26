@@ -72,7 +72,7 @@ const highlights = [
   },
   {
     title: "Resumes Screened",
-    count: "10,000+",
+    count: "10000+",
     icon: <FileText className="h-6 w-6 text-job-primary mb-2 mx-auto" />,
   },
   {
@@ -530,11 +530,11 @@ const testimonials = [
               {highlight.icon}
               <p className="text-3xl md:text-4xl font-bold text-job-primary mb-1">
                 {inView ? (
-                  <CountUp end={parseInt(highlight.count)} duration={2} />
+                  <CountUp end={parseInt(highlight.count)} duration={2} /> 
                 ) : (
                   0
                 )}
-              </p>
+              + </p>
               <p className="text-gray-600 text-sm">{highlight.title}</p>
             </CardContent>
           </Card>
