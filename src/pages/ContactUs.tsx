@@ -83,9 +83,9 @@ const ContactUs = () => {
                 </p>
               </div>
 
-              {/* Dubai Office */}
+              {/* UAE Branch */}
               <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-job-primary">Dubai Office</h3>
+                <h3 className="text-lg font-semibold text-job-primary">UAE Branch</h3>
                 <div className="flex items-start">
                   <Phone className="h-5 w-5 text-job-primary mr-3 mt-1" />
                   <div>
@@ -109,9 +109,9 @@ const ContactUs = () => {
                 </div>
               </div>
 
-              {/* India Office */}
+              {/* Indian Branch */}
               <div className="pt-6 space-y-2">
-                <h3 className="text-lg font-semibold text-job-primary">India Office</h3>
+                <h3 className="text-lg font-semibold text-job-primary">Indian Branch</h3>
                 <div className="flex items-start">
                   <Phone className="h-5 w-5 text-job-primary mr-3 mt-1" />
                   <div>
@@ -172,12 +172,12 @@ const ContactUs = () => {
           <h2 className="text-2xl font-bold mb-6 text-center">Our Locations</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Dubai Office Map */}
+            {/* UAE Branch Map */}
             <div>
-              <h3 className="text-lg font-semibold mb-3 text-center md:text-left">Dubai Office</h3>
+              <h3 className="text-lg font-semibold mb-3 text-center md:text-left">UAE Branch</h3>
               <div className="aspect-video w-full rounded-lg overflow-hidden shadow-md">
                 <iframe
-                  title="NM HR Consultancy - Dubai Office"
+                  title="NM HR Consultancy - UAE Branch"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d929475.2981322214!2d53.14989207812499!3d24.493671300000024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8076d1a634b0e363%3A0x6d625b25c99e27c2!2sNM%20HUMAN%20RESOURCES%20CONSULTANCY!5e0!3m2!1sen!2sin!4v1750922667847!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
@@ -189,12 +189,12 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* India Office Map */}
+            {/* Indian Branch Map */}
             <div>
-              <h3 className="text-lg font-semibold mb-3 text-center md:text-left">India Office</h3>
+              <h3 className="text-lg font-semibold mb-3 text-center md:text-left">Indian Branch</h3>
               <div className="aspect-video w-full rounded-lg overflow-hidden shadow-md">
                 <iframe
-                  title="NM HR Consultancy - India Office"
+                  title="NM HR Consultancy - Indian Branch"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.040345542795!2d83.29680695296967!3d17.726704719253117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943240631685d%3A0x67c4871ce095afb1!2sBhupathi%20Surya%20Central%20Mall!5e0!3m2!1sen!2sin!4v1750922847479!5m2!1sen!2sin"
                   width="100%"
                   height="100%"

@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
             <ul className="space-y-4">
               <li>
-                <h4 className="font-semibold text-white">Dubai Office</h4>
+                <h4 className="font-semibold text-white">UAE Branch</h4>
                 <div className="ml-6 text-sm text-gray-400 space-y-1">
                   <div className="flex items-start">
                     <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
                 </div>
               </li>
               <li>
-                <h4 className="font-semibold text-white">India Office</h4>
+                <h4 className="font-semibold text-white">Indian Branch</h4>
                 <div className="ml-6 text-sm text-gray-400 space-y-1">
                   <div className="flex items-start">
                     <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
