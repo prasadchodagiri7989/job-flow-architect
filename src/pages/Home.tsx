@@ -105,10 +105,10 @@ const testimonials = [
   return (
     <Layout>
 {/* Hero section */}
-<div className="relative h-[100vh] md:h-[100vh]">
+<div className="relative h-[100vh] md:h-[100vh] bg-black">
   {/* Background video */}
   <video
-    className="absolute inset-0 w-full h-full object-cover z-0"
+    className="absolute inset-0 w-full h-full object-cover z-0 mt-32"
     autoPlay
     loop
     muted
