@@ -123,7 +123,7 @@ const ContactUs = () => {
                   <Mail className="h-5 w-5 text-job-primary mr-3 mt-1" />
                   <div>
                     <h4 className="font-medium">Email</h4>
-                    <p className="text-gray-600">ceo@nmhruae.com</p>
+                    <p className="text-gray-600">hr.vizag@nmhruae.com </p>
                   </div>
                 </div>
                 <div className="flex items-start">

@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
                 <div className="ml-6 text-sm text-gray-400 space-y-1">
                   <div className="flex items-start">
                     <Mail className="h-4 w-4 text-job-primary mr-2 mt-1" />
-                    <span>ceo@nmhruae.com</span>
+                    <span>hr.vizag@nmhruae.com </span>
                   </div>
                   <div className="flex items-start">
                     <Phone className="h-4 w-4 text-job-primary mr-2 mt-1" />
